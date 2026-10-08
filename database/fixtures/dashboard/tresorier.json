@@ -1,0 +1,487 @@
+{
+ "lead": "Trésorerie saine : 59 cotisations restent à encaisser et 4 notes de frais attendent votre validation.",
+ "counts": {
+  "/notes-de-frais": 4,
+  "/operations": 3,
+  "/cotisations": 59
+ },
+ "hero": {
+  "type": "focus",
+  "title": "Solde de trésorerie",
+  "value": "24 860 €",
+  "caption": "tous comptes confondus, mis à jour ce matin",
+  "ring": {
+   "percent": 38,
+   "value": "38 %",
+   "label": "du budget annuel dépensé"
+  },
+  "actions": [
+   {
+    "label": "Rapprocher les opérations",
+    "kind": "primary",
+    "href": "#panel-operations"
+   },
+   {
+    "label": "Relancer les impayés",
+    "kind": "ghost",
+    "toast": "Relance envoyée",
+    "done": "Relance envoyée"
+   }
+  ]
+ },
+ "agenda": {
+  "title": "À venir",
+  "items": [
+   {
+    "day": "Jeu",
+    "n": "01",
+    "title": "Réunion du bureau",
+    "meta": "1er octobre, 19h00, point budgétaire"
+   },
+   {
+    "day": "Lun",
+    "n": "05",
+    "title": "2e versement des cotisations",
+    "meta": "5 octobre, 41 familles en paiement échelonné"
+   },
+   {
+    "day": "Mer",
+    "n": "07",
+    "title": "Rapprochement bancaire",
+    "meta": "7 octobre, relevés de septembre à pointer",
+    "highlight": true
+   },
+   {
+    "day": "Sam",
+    "n": "31",
+    "title": "Clôture d'octobre",
+    "meta": "31 octobre, export pour l'expert-comptable"
+   }
+  ]
+ },
+ "kpis": [
+  {
+   "label": "Cotisations encaissées",
+   "value": "75 %",
+   "hint": "68 420 € sur 91 000 € attendus",
+   "icon": "euro",
+   "chip": {
+    "tone": "ok",
+    "label": "+6 pts",
+    "dir": "up"
+   },
+   "spark": [
+    8,
+    29,
+    47,
+    62,
+    70,
+    75
+   ]
+  },
+  {
+   "label": "Cotisations impayées",
+   "value": "59",
+   "hint": "17 830 € restent à encaisser",
+   "icon": "alert",
+   "tone": "danger",
+   "chip": {
+    "tone": "ok",
+    "label": "-5",
+    "dir": "down"
+   },
+   "spark": [
+    84,
+    80,
+    74,
+    70,
+    64,
+    59
+   ]
+  },
+  {
+   "label": "Dépenses de septembre",
+   "value": "9 340 €",
+   "hint": "Budget mensuel : 10 500 €",
+   "icon": "chart",
+   "chip": {
+    "tone": "ok",
+    "label": "-11 %",
+    "dir": "down"
+   },
+   "spark": [
+    8.1,
+    7.4,
+    9.6,
+    11.2,
+    10.5,
+    9.3
+   ]
+  },
+  {
+   "label": "Subventions attendues",
+   "value": "12 500 €",
+   "hint": "Mairie 8 000 €, département 4 500 €",
+   "icon": "shield-check",
+   "tone": "warn",
+   "chip": {
+    "tone": "warn",
+    "label": "2 dossiers"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "type": "finance",
+   "id": "cotisations",
+   "title": "Cotisations de la saison",
+   "raised": "68 420 €",
+   "target": "sur 91 000 € attendus",
+   "percent": 75,
+   "donutLabel": "licenciés",
+   "stats": [
+    {
+     "label": "Payées",
+     "value": 312,
+     "tone": "ok"
+    },
+    {
+     "label": "Partielles",
+     "value": 41,
+     "tone": "warn"
+    },
+    {
+     "label": "Impayées",
+     "value": 59,
+     "tone": "danger"
+    }
+   ],
+   "action": {
+    "label": "Voir les impayés",
+    "href": "/cotisations"
+   }
+  },
+  {
+   "type": "categories",
+   "id": "depenses",
+   "title": "Dépenses par poste",
+   "full": false,
+   "unit": " €",
+   "items": [
+    {
+     "name": "Équipements",
+     "count": 14200
+    },
+    {
+     "name": "Arbitrage",
+     "count": 6800
+    },
+    {
+     "name": "Déplacements",
+     "count": 5900
+    },
+    {
+     "name": "Assurances",
+     "count": 4100
+    },
+    {
+     "name": "Formation",
+     "count": 3200
+    },
+    {
+     "name": "Événements",
+     "count": 2900
+    }
+   ],
+   "subtitle": "37 100 € dépensés depuis juillet, sur 97 600 € de budget"
+  },
+  {
+   "type": "trend",
+   "id": "encaissements",
+   "title": "Encaissements mensuels",
+   "full": true,
+   "labels": [
+    "Avr",
+    "Mai",
+    "Juin",
+    "Juil",
+    "Août",
+    "Sep"
+   ],
+   "values": [
+    3.1,
+    2.8,
+    5.4,
+    18.6,
+    29.9,
+    11.4
+   ],
+   "unit": " k€",
+   "min": 0,
+   "max": 40,
+   "subtitle": "Cotisations, subventions et buvette, en milliers d'euros"
+  },
+  {
+   "type": "table",
+   "id": "operations",
+   "title": "Dernières opérations",
+   "full": true,
+   "columns": [
+    "Date",
+    "Libellé",
+    "Poste",
+    "Montant"
+   ],
+   "statusLabel": "Statut",
+   "rows": [
+    {
+     "cells": [
+      "28 sept.",
+      "Cotisations, 14 virements",
+      "Cotisations",
+      "+ 2 140 €"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "À rapprocher"
+     },
+     "actions": [
+      {
+       "label": "Rapprocher",
+       "kind": "primary",
+       "toast": "Opération rapprochée",
+       "set": {
+        "tone": "ok",
+        "label": "Rapprochée"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "27 sept.",
+      "Sportex, maillots U11",
+      "Équipements",
+      "− 1 260 €"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "À rapprocher"
+     },
+     "actions": [
+      {
+       "label": "Rapprocher",
+       "kind": "primary",
+       "toast": "Opération rapprochée",
+       "set": {
+        "tone": "ok",
+        "label": "Rapprochée"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "26 sept.",
+      "Indemnités d'arbitrage, journée 3",
+      "Arbitrage",
+      "− 684 €"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Rapprochée"
+     }
+    },
+    {
+     "cells": [
+      "25 sept.",
+      "Subvention de la mairie, acompte",
+      "Subventions",
+      "+ 4 000 €"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Rapprochée"
+     }
+    },
+    {
+     "cells": [
+      "24 sept.",
+      "Location de minibus, déplacement U15",
+      "Déplacements",
+      "− 320 €"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "À rapprocher"
+     },
+     "actions": [
+      {
+       "label": "Rapprocher",
+       "kind": "primary",
+       "toast": "Opération rapprochée",
+       "set": {
+        "tone": "ok",
+        "label": "Rapprochée"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "22 sept.",
+      "Assurance des licences, 2e échéance",
+      "Assurances",
+      "− 1 025 €"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Rapprochée"
+     }
+    }
+   ],
+   "filters": [
+    {
+     "key": "pending",
+     "label": "À rapprocher"
+    },
+    {
+     "key": "valid",
+     "label": "Rapprochées"
+    }
+   ]
+  },
+  {
+   "type": "tasks",
+   "id": "frais",
+   "title": "Notes de frais à valider",
+   "full": true,
+   "items": [
+    {
+     "title": "Sami Haddad, déplacement du tournoi U13",
+     "meta": "184,40 € de carburant et de péages, le 20 septembre",
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Note de frais validée",
+       "set": {
+        "tone": "ok",
+        "label": "Validée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Note de frais refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Karim Benali, petit matériel U15",
+     "meta": "62 € de plots et de sifflets, le 22 septembre",
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Note de frais validée",
+       "set": {
+        "tone": "ok",
+        "label": "Validée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Note de frais refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Julien Renaud, déplacement d'arbitre",
+     "meta": "48 € de frais kilométriques, le 26 septembre",
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Note de frais validée",
+       "set": {
+        "tone": "ok",
+        "label": "Validée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Note de frais refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Amélie Bertrand, repas des bénévoles",
+     "meta": "210 € de restauration, le 27 septembre",
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Note de frais validée",
+       "set": {
+        "tone": "ok",
+        "label": "Validée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Note de frais refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "notifications": [
+  {
+   "tone": "danger",
+   "title": "17 830 € d'impayés",
+   "text": "59 familles ont encore une cotisation à régler.",
+   "time": "Il y a 1 h",
+   "unread": true
+  },
+  {
+   "tone": "warn",
+   "title": "4 notes de frais à valider",
+   "text": "La plus ancienne date du 20 septembre.",
+   "time": "Hier",
+   "unread": true
+  },
+  {
+   "tone": "ok",
+   "title": "Acompte de la mairie reçu",
+   "text": "4 000 € crédités le 25 septembre.",
+   "time": "Il y a 4 jours"
+  },
+  {
+   "tone": "neutral",
+   "title": "Export comptable attendu le 31 octobre",
+   "text": "L'expert-comptable a besoin des relevés du mois.",
+   "time": "Il y a 1 semaine"
+  }
+ ]
+}

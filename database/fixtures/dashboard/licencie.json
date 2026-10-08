@@ -1,0 +1,282 @@
+{
+ "lead": "Vous suivez Lucas (U13). Il reste une pièce à fournir pour finaliser son dossier.",
+ "counts": {
+  "/convocations": 1,
+  "/dossier": 1
+ },
+ "hero": {
+  "type": "match",
+  "title": "Prochain match de Lucas",
+  "competition": "Championnat U13, journée 4",
+  "home": {
+   "name": "M2L U13",
+   "short": "M2L",
+   "us": true,
+   "sub": "Domicile"
+  },
+  "away": {
+   "name": "FC Sèvre-et-Maine",
+   "short": "FSM",
+   "sub": "Visiteur"
+  },
+  "kickoff": "2026-10-03T15:00:00+02:00",
+  "label": "Samedi 3 octobre, 15h00",
+  "venue": "Stade Léo-Lagrange, rendez-vous à 14h15",
+  "status": {
+   "tone": "warn",
+   "label": "Réponse attendue avant vendredi"
+  },
+  "actions": [
+   {
+    "label": "Confirmer la présence",
+    "kind": "primary",
+    "toast": "Présence confirmée",
+    "set": {
+     "tone": "ok",
+     "label": "Présence confirmée"
+    }
+   },
+   {
+    "label": "Indisponible",
+    "kind": "ghost",
+    "toast": "Indisponibilité transmise",
+    "set": {
+     "tone": "danger",
+     "label": "Indisponible"
+    }
+   }
+  ]
+ },
+ "agenda": {
+  "title": "Cette semaine",
+  "items": [
+   {
+    "day": "Mer",
+    "n": "30",
+    "title": "Entraînement U13",
+    "meta": "17h30, Terrain 2"
+   },
+   {
+    "day": "Ven",
+    "n": "02",
+    "title": "Entraînement U13",
+    "meta": "17h30, Terrain 2"
+   },
+   {
+    "day": "Sam",
+    "n": "03",
+    "title": "M2L – FC Sèvre-et-Maine",
+    "meta": "Rendez-vous 14h15, Stade Léo-Lagrange",
+    "highlight": true
+   },
+   {
+    "day": "Lun",
+    "n": "05",
+    "title": "Date limite : autorisation parentale",
+    "meta": "À signer depuis votre espace"
+   }
+  ]
+ },
+ "kpis": [
+  {
+   "label": "Présence de Lucas",
+   "value": "87 %",
+   "hint": "Depuis la reprise en août",
+   "icon": "activity",
+   "chip": {
+    "tone": "ok",
+    "label": "+3 pts",
+    "dir": "up"
+   },
+   "spark": [
+    78,
+    80,
+    82,
+    85,
+    84,
+    87
+   ]
+  },
+  {
+   "label": "Certificat médical",
+   "value": "À jour",
+   "hint": "Valide jusqu'au 12 juin 2027",
+   "icon": "shield-check",
+   "tone": "ok",
+   "chip": {
+    "tone": "ok",
+    "label": "Validé"
+   }
+  },
+  {
+   "label": "Cotisation",
+   "value": "60 €",
+   "hint": "À régler avant le 15 octobre",
+   "icon": "euro",
+   "tone": "warn",
+   "chip": {
+    "tone": "warn",
+    "label": "Reste dû"
+   },
+   "meter": {
+    "percent": 60,
+    "label": "90 € déjà payés sur 150 €"
+   }
+  },
+  {
+   "label": "Matchs joués",
+   "value": "3",
+   "hint": "Titulaire à 2 reprises",
+   "icon": "trophy",
+   "chip": {
+    "tone": "neutral",
+    "label": "Saison 26-27"
+   },
+   "spark": [
+    0,
+    1,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "type": "convocations",
+   "id": "convocations",
+   "title": "Prochaines convocations",
+   "items": [
+    {
+     "day": "10",
+     "month": "oct.",
+     "tag": "U13",
+     "title": "US Château-Thébaud – M2L",
+     "meta": [
+      "Samedi 14h00",
+      "Complexe des Ormeaux",
+      "Extérieur"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Présence confirmée"
+     }
+    },
+    {
+     "day": "17",
+     "month": "oct.",
+     "tag": "U13",
+     "title": "Tournoi d'automne",
+     "meta": [
+      "Samedi 9h00",
+      "Complexe Jean-Bouin",
+      "Neutre"
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "Convocation à venir"
+     }
+    },
+    {
+     "day": "24",
+     "month": "oct.",
+     "tag": "U13",
+     "title": "M2L – AS Basse-Goulaine",
+     "meta": [
+      "Samedi 15h00",
+      "Stade Léo-Lagrange",
+      "Domicile"
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "Convocation à venir"
+     }
+    }
+   ]
+  },
+  {
+   "type": "documents",
+   "id": "dossier",
+   "title": "Dossier de Lucas",
+   "provided": 3,
+   "summary": "Plus qu'une pièce à fournir pour finaliser le dossier.",
+   "items": [
+    {
+     "icon": "shield-check",
+     "name": "Certificat médical",
+     "meta": "Valide jusqu'au 12 juin 2027",
+     "status": {
+      "tone": "ok",
+      "label": "Validé"
+     }
+    },
+    {
+     "icon": "file",
+     "name": "Fiche de renseignements",
+     "meta": "Reçue le 2 septembre",
+     "status": {
+      "tone": "ok",
+      "label": "Validé"
+     }
+    },
+    {
+     "icon": "file",
+     "name": "Photo d'identité",
+     "meta": "Reçue le 2 septembre",
+     "status": {
+      "tone": "ok",
+      "label": "Validé"
+     }
+    },
+    {
+     "icon": "clipboard",
+     "name": "Autorisation parentale",
+     "meta": "Signature attendue avant le 5 octobre",
+     "status": {
+      "tone": "warn",
+      "label": "À signer"
+     },
+     "actions": [
+      {
+       "label": "Signer",
+       "kind": "primary",
+       "toast": "Autorisation signée",
+       "set": {
+        "tone": "ok",
+        "label": "Signée"
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "notifications": [
+  {
+   "tone": "warn",
+   "title": "Autorisation parentale à signer",
+   "text": "Nécessaire pour valider le dossier de Lucas avant le 5 octobre.",
+   "time": "Il y a 2 h",
+   "unread": true
+  },
+  {
+   "tone": "warn",
+   "title": "Cotisation à régler",
+   "text": "60 € restent dus pour la saison 2026-2027.",
+   "time": "Hier",
+   "unread": true
+  },
+  {
+   "tone": "ok",
+   "title": "Certificat médical validé",
+   "text": "Le secrétariat a validé le certificat de Lucas.",
+   "time": "Il y a 3 jours"
+  },
+  {
+   "tone": "neutral",
+   "title": "Convocation du 10 octobre",
+   "text": "Rendez-vous à 13h15 devant le complexe des Ormeaux.",
+   "time": "Il y a 4 jours"
+  }
+ ]
+}

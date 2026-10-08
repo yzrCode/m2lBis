@@ -1,0 +1,485 @@
+{
+ "lead": "6 commandes sont en cours et 3 attendent votre validation. Quatre références sont sous le seuil de stock.",
+ "counts": {
+  "/commandes": 3,
+  "/stocks": 4,
+  "/demandes": 3
+ },
+ "hero": {
+  "type": "focus",
+  "title": "Commandes en cours",
+  "value": "6",
+  "caption": "dont 3 livraisons attendues cette semaine",
+  "ring": {
+   "percent": 64,
+   "value": "64 %",
+   "label": "du budget achats engagé"
+  },
+  "actions": [
+   {
+    "label": "Valider les commandes",
+    "kind": "primary",
+    "href": "#panel-commandes"
+   },
+   {
+    "label": "Voir les stocks",
+    "kind": "ghost",
+    "href": "#panel-stocks"
+   }
+  ]
+ },
+ "agenda": {
+  "title": "Cette semaine",
+  "items": [
+   {
+    "day": "Mer",
+    "n": "30",
+    "title": "Livraison : ballons taille 5",
+    "meta": "10h00 à 12h00, fournisseur Sportex"
+   },
+   {
+    "day": "Jeu",
+    "n": "01",
+    "title": "Livraison : affiches du tournoi",
+    "meta": "Imprimerie du Port, matin"
+   },
+   {
+    "day": "Ven",
+    "n": "02",
+    "title": "Livraison : maillots U11",
+    "meta": "Textil'Sport, matin"
+   },
+   {
+    "day": "Sam",
+    "n": "03",
+    "title": "Distribution du matériel aux éducateurs",
+    "meta": "9h00, local matériel",
+    "highlight": true
+   }
+  ]
+ },
+ "kpis": [
+  {
+   "label": "Budget achats engagé",
+   "value": "18 400 €",
+   "hint": "sur 28 700 € annuels",
+   "icon": "cart",
+   "chip": {
+    "tone": "neutral",
+    "label": "10 300 € restants"
+   },
+   "meter": {
+    "percent": 64,
+    "label": "64 % du budget annuel"
+   }
+  },
+  {
+   "label": "Commandes à valider",
+   "value": "3",
+   "hint": "Total de 1 048 €",
+   "icon": "clipboard",
+   "tone": "warn",
+   "chip": {
+    "tone": "warn",
+    "label": "À traiter"
+   },
+   "spark": [
+    1,
+    4,
+    2,
+    5,
+    4,
+    3
+   ]
+  },
+  {
+   "label": "Références sous le seuil",
+   "value": "4",
+   "hint": "Kits de soin, maillots U11, ballons T4, chasubles",
+   "icon": "package",
+   "tone": "danger",
+   "chip": {
+    "tone": "danger",
+    "label": "Rupture proche"
+   },
+   "spark": [
+    1,
+    2,
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "label": "Délai moyen de livraison",
+   "value": "6 j",
+   "hint": "Objectif : 7 jours",
+   "icon": "send",
+   "tone": "ok",
+   "chip": {
+    "tone": "ok",
+    "label": "-1 j",
+    "dir": "down"
+   },
+   "spark": [
+    9,
+    8,
+    8,
+    7,
+    7,
+    6
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "type": "table",
+   "id": "commandes",
+   "title": "Commandes fournisseurs",
+   "full": true,
+   "columns": [
+    "Réf.",
+    "Fournisseur",
+    "Objet",
+    "Montant",
+    "Livraison"
+   ],
+   "statusLabel": "Statut",
+   "rows": [
+    {
+     "cells": [
+      "CMD-2611",
+      "Sportex",
+      "Ballons taille 5 (×24)",
+      "612 €",
+      "30 sept."
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "En cours"
+     }
+    },
+    {
+     "cells": [
+      "CMD-2610",
+      "Imprimerie du Port",
+      "Affiches du tournoi (×60)",
+      "96 €",
+      "1er oct."
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "En cours"
+     }
+    },
+    {
+     "cells": [
+      "CMD-2612",
+      "Textil'Sport",
+      "Maillots U11 (×16)",
+      "1 260 €",
+      "2 oct."
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "En cours"
+     }
+    },
+    {
+     "cells": [
+      "CMD-2613",
+      "Sportex",
+      "Chasubles (×40)",
+      "520 €",
+      "À planifier"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "À valider"
+     },
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Commande validée",
+       "set": {
+        "tone": "neutral",
+        "label": "En cours"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Commande refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "CMD-2614",
+      "MédiSport",
+      "Kits de soin (×8)",
+      "340 €",
+      "À planifier"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "À valider"
+     },
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Commande validée",
+       "set": {
+        "tone": "neutral",
+        "label": "En cours"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Commande refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "CMD-2615",
+      "Sportex",
+      "Cônes et coupelles",
+      "188 €",
+      "À planifier"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "À valider"
+     },
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Commande validée",
+       "set": {
+        "tone": "neutral",
+        "label": "En cours"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Commande refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "CMD-2609",
+      "Textil'Sport",
+      "Sweats à capuche de la boutique (×30)",
+      "1 650 €",
+      "24 sept."
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Livrée"
+     }
+    }
+   ],
+   "filters": [
+    {
+     "key": "pending",
+     "label": "À valider"
+    },
+    {
+     "key": "other",
+     "label": "En cours"
+    },
+    {
+     "key": "valid",
+     "label": "Livrées"
+    }
+   ]
+  },
+  {
+   "type": "categories",
+   "id": "stocks",
+   "title": "Stocks à surveiller",
+   "full": false,
+   "unit": " u.",
+   "items": [
+    {
+     "name": "Kits de soin",
+     "count": 2
+    },
+    {
+     "name": "Maillots U11",
+     "count": 4
+    },
+    {
+     "name": "Ballons T4",
+     "count": 6
+    },
+    {
+     "name": "Chasubles",
+     "count": 9
+    },
+    {
+     "name": "Cônes",
+     "count": 14
+    },
+    {
+     "name": "Ballons T5",
+     "count": 30
+    }
+   ],
+   "subtitle": "Seuil d'alerte : 12 unités"
+  },
+  {
+   "type": "tasks",
+   "id": "demandes",
+   "title": "Demandes des éducateurs",
+   "full": false,
+   "items": [
+    {
+     "title": "Ballons taille 4 (×10)",
+     "meta": "Demandé par Karim Benali, U15",
+     "actions": [
+      {
+       "label": "Accepter",
+       "kind": "primary",
+       "toast": "Demande acceptée",
+       "set": {
+        "tone": "ok",
+        "label": "Acceptée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Demande refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Chasubles orange (×15)",
+     "meta": "Demandé par l'école de foot",
+     "actions": [
+      {
+       "label": "Accepter",
+       "kind": "primary",
+       "toast": "Demande acceptée",
+       "set": {
+        "tone": "ok",
+        "label": "Acceptée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Demande refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Cônes et coupelles",
+     "meta": "Demandé par le responsable des tournois",
+     "actions": [
+      {
+       "label": "Accepter",
+       "kind": "primary",
+       "toast": "Demande acceptée",
+       "set": {
+        "tone": "ok",
+        "label": "Acceptée"
+       }
+      },
+      {
+       "label": "Refuser",
+       "kind": "ghost",
+       "toast": "Demande refusée",
+       "set": {
+        "tone": "danger",
+        "label": "Refusée"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "trend",
+   "id": "depenses-achats",
+   "title": "Dépenses d'achats par mois",
+   "full": true,
+   "labels": [
+    "Avr",
+    "Mai",
+    "Juin",
+    "Juil",
+    "Août",
+    "Sep"
+   ],
+   "values": [
+    1.2,
+    0.8,
+    2.1,
+    6.4,
+    5.9,
+    2.0
+   ],
+   "unit": " k€",
+   "min": 0,
+   "max": 8,
+   "subtitle": "En milliers d'euros, 18 400 € depuis avril"
+  }
+ ],
+ "notifications": [
+  {
+   "tone": "warn",
+   "title": "3 commandes à valider",
+   "text": "Chasubles, kits de soin, cônes et coupelles.",
+   "time": "Il y a 1 h",
+   "unread": true
+  },
+  {
+   "tone": "danger",
+   "title": "Kits de soin : stock presque épuisé",
+   "text": "Il en reste 2, le seuil d'alerte est de 12.",
+   "time": "Hier",
+   "unread": true
+  },
+  {
+   "tone": "ok",
+   "title": "Sweats à capuche livrés",
+   "text": "30 pièces reçues, mises en vente à la boutique.",
+   "time": "Il y a 5 jours"
+  },
+  {
+   "tone": "neutral",
+   "title": "Devis des chasubles",
+   "text": "Trois fournisseurs ont répondu.",
+   "time": "Il y a 1 semaine"
+  }
+ ]
+}

@@ -1,0 +1,973 @@
+{
+ "club": {
+  "name": "M2L Football Club",
+  "short": "M2L",
+  "founded": 1978,
+  "address": "Complexe sportif Léo-Lagrange",
+  "city": "44000 Nantes",
+  "phone": "02 40 00 00 00",
+  "email": "contact@m2l-fc.fr",
+  "shopEmail": "boutique@m2l-fc.fr",
+  "permanence": "Mercredi et samedi, de 14h à 17h"
+ },
+ "season": {
+  "label": "Saison 2026-2027",
+  "progress": {
+   "label": "Journée 4 sur 22",
+   "percent": 18
+  }
+ },
+ "stats": [
+  {
+   "value": 412,
+   "label": "licenciés"
+  },
+  {
+   "value": 18,
+   "label": "équipes engagées"
+  },
+  {
+   "value": 14,
+   "label": "éducateurs diplômés"
+  },
+  {
+   "value": 48,
+   "label": "ans d'histoire"
+  }
+ ],
+ "teams": [
+  {
+   "id": "seniors-a",
+   "name": "Seniors A",
+   "competition": "Départemental 2"
+  },
+  {
+   "id": "seniors-b",
+   "name": "Seniors B",
+   "competition": "Départemental 4"
+  },
+  {
+   "id": "u18",
+   "name": "U18",
+   "competition": "Départemental 1"
+  },
+  {
+   "id": "u15",
+   "name": "U15",
+   "competition": "Départemental 1"
+  },
+  {
+   "id": "u13",
+   "name": "U13",
+   "competition": "Départemental 2"
+  },
+  {
+   "id": "u11",
+   "name": "U11",
+   "competition": "Plateaux"
+  },
+  {
+   "id": "u9",
+   "name": "U9",
+   "competition": "Plateaux"
+  }
+ ],
+ "next": {
+  "team": "Seniors A",
+  "competition": "Départemental 2, journée 4",
+  "opponent": "AS Orvault Est",
+  "home": true,
+  "kickoff": "2026-10-04T15:00:00+02:00",
+  "venue": "Stade Léo-Lagrange"
+ },
+ "results": [
+  [
+   "u18",
+   "2026-09-27",
+   "M2L U18",
+   "ES Vertou Sud",
+   4,
+   0,
+   "Départemental 1, J3"
+  ],
+  [
+   "seniors-a",
+   "2026-09-27",
+   "AS Basse-Goulaine",
+   "M2L Seniors A",
+   0,
+   2,
+   "Départemental 2, J3"
+  ],
+  [
+   "seniors-b",
+   "2026-09-27",
+   "M2L Seniors B",
+   "AS Orvault Est",
+   2,
+   2,
+   "Départemental 4, J3"
+  ],
+  [
+   "u15",
+   "2026-09-26",
+   "US Château-Thébaud",
+   "M2L U15",
+   1,
+   3,
+   "Départemental 1, J3"
+  ],
+  [
+   "u13",
+   "2026-09-26",
+   "M2L U13",
+   "Olympique Rezé Nord",
+   2,
+   2,
+   "Départemental 2, J3"
+  ],
+  [
+   "u18",
+   "2026-09-20",
+   "FC Sèvre-et-Maine",
+   "M2L U18",
+   0,
+   2,
+   "Départemental 1, J2"
+  ],
+  [
+   "seniors-a",
+   "2026-09-20",
+   "M2L Seniors A",
+   "US Château-Thébaud",
+   1,
+   2,
+   "Départemental 2, J2"
+  ],
+  [
+   "seniors-b",
+   "2026-09-20",
+   "FC Sèvre-et-Maine",
+   "M2L Seniors B",
+   3,
+   1,
+   "Départemental 4, J2"
+  ],
+  [
+   "u15",
+   "2026-09-19",
+   "M2L U15",
+   "FC Sautron",
+   2,
+   0,
+   "Départemental 1, J2"
+  ],
+  [
+   "u13",
+   "2026-09-19",
+   "AS Basse-Goulaine",
+   "M2L U13",
+   1,
+   0,
+   "Départemental 2, J2"
+  ],
+  [
+   "u18",
+   "2026-09-13",
+   "M2L U18",
+   "AS Orvault Est",
+   3,
+   2,
+   "Départemental 1, J1"
+  ],
+  [
+   "seniors-a",
+   "2026-09-13",
+   "FC Sautron",
+   "M2L Seniors A",
+   1,
+   3,
+   "Départemental 2, J1"
+  ],
+  [
+   "seniors-b",
+   "2026-09-13",
+   "M2L Seniors B",
+   "FC Sautron",
+   1,
+   0,
+   "Départemental 4, J1"
+  ],
+  [
+   "u15",
+   "2026-09-12",
+   "ES Vertou Sud",
+   "M2L U15",
+   1,
+   1,
+   "Départemental 1, J1"
+  ],
+  [
+   "u13",
+   "2026-09-12",
+   "M2L U13",
+   "US Château-Thébaud",
+   3,
+   1,
+   "Départemental 2, J1"
+  ]
+ ],
+ "standings": [
+  {
+   "id": "seniors-a",
+   "label": "Seniors A",
+   "competition": "Départemental 2, groupe B",
+   "rows": [
+    [
+     "AS Orvault Est",
+     3,
+     0,
+     0,
+     7,
+     1,
+     "VVV"
+    ],
+    [
+     "US Château-Thébaud",
+     2,
+     1,
+     0,
+     6,
+     3,
+     "VNV"
+    ],
+    [
+     "AS Carquefou Sud",
+     2,
+     0,
+     1,
+     6,
+     2,
+     "VDV"
+    ],
+    [
+     "M2L Seniors A",
+     2,
+     0,
+     1,
+     6,
+     3,
+     "VDV"
+    ],
+    [
+     "ES Vertou Sud",
+     2,
+     0,
+     1,
+     5,
+     3,
+     "DVV"
+    ],
+    [
+     "US Sainte-Luce Nord",
+     1,
+     1,
+     1,
+     3,
+     3,
+     "NVD"
+    ],
+    [
+     "FC Bouguenais",
+     1,
+     0,
+     2,
+     3,
+     4,
+     "DVD"
+    ],
+    [
+     "AS Basse-Goulaine",
+     1,
+     0,
+     2,
+     3,
+     7,
+     "VDD"
+    ],
+    [
+     "FC Sèvre-et-Maine",
+     1,
+     0,
+     2,
+     3,
+     5,
+     "DVD"
+    ],
+    [
+     "FC Sautron",
+     0,
+     2,
+     1,
+     3,
+     5,
+     "DNN"
+    ],
+    [
+     "US Saint-Herblain Ouest",
+     0,
+     1,
+     2,
+     1,
+     5,
+     "DND"
+    ],
+    [
+     "AS Couëron Nord",
+     0,
+     1,
+     2,
+     2,
+     7,
+     "DDN"
+    ]
+   ]
+  },
+  {
+   "id": "u18",
+   "label": "U18",
+   "competition": "Départemental 1",
+   "rows": [
+    [
+     "M2L U18",
+     3,
+     0,
+     0,
+     9,
+     2,
+     "VVV"
+    ],
+    [
+     "Olympique Rezé Nord",
+     2,
+     1,
+     0,
+     7,
+     3,
+     "VNV"
+    ],
+    [
+     "US Château-Thébaud",
+     2,
+     0,
+     1,
+     5,
+     3,
+     "VDV"
+    ],
+    [
+     "AS Carquefou Sud",
+     2,
+     0,
+     1,
+     5,
+     4,
+     "DVV"
+    ],
+    [
+     "AS Orvault Est",
+     1,
+     1,
+     1,
+     6,
+     7,
+     "NVD"
+    ],
+    [
+     "FC Sèvre-et-Maine",
+     1,
+     1,
+     1,
+     4,
+     5,
+     "VDN"
+    ],
+    [
+     "ES Vertou Sud",
+     1,
+     0,
+     2,
+     3,
+     6,
+     "VDD"
+    ],
+    [
+     "AS Basse-Goulaine",
+     1,
+     0,
+     2,
+     3,
+     6,
+     "DVD"
+    ],
+    [
+     "FC Sautron",
+     1,
+     0,
+     2,
+     2,
+     4,
+     "DDV"
+    ],
+    [
+     "FC Bouguenais",
+     0,
+     2,
+     1,
+     3,
+     3,
+     "NDN"
+    ],
+    [
+     "US Saint-Herblain Ouest",
+     0,
+     2,
+     1,
+     2,
+     3,
+     "NND"
+    ],
+    [
+     "AS Couëron Nord",
+     0,
+     1,
+     2,
+     2,
+     5,
+     "DND"
+    ]
+   ]
+  },
+  {
+   "id": "u15",
+   "label": "U15",
+   "competition": "Départemental 1",
+   "rows": [
+    [
+     "FC Sèvre-et-Maine",
+     3,
+     0,
+     0,
+     8,
+     1,
+     "VVV"
+    ],
+    [
+     "M2L U15",
+     2,
+     1,
+     0,
+     6,
+     2,
+     "NVV"
+    ],
+    [
+     "Olympique Rezé Nord",
+     2,
+     0,
+     1,
+     5,
+     3,
+     "DVV"
+    ],
+    [
+     "AS Basse-Goulaine",
+     2,
+     0,
+     1,
+     4,
+     3,
+     "VDV"
+    ],
+    [
+     "US Château-Thébaud",
+     1,
+     1,
+     1,
+     4,
+     4,
+     "NVD"
+    ],
+    [
+     "ES Vertou Sud",
+     1,
+     1,
+     1,
+     3,
+     3,
+     "NDV"
+    ],
+    [
+     "AS Orvault Est",
+     1,
+     1,
+     1,
+     4,
+     5,
+     "VDN"
+    ],
+    [
+     "FC Sautron",
+     1,
+     0,
+     2,
+     3,
+     6,
+     "DVD"
+    ],
+    [
+     "AS Carquefou Sud",
+     0,
+     3,
+     0,
+     2,
+     2,
+     "NNN"
+    ],
+    [
+     "US Saint-Herblain Ouest",
+     0,
+     2,
+     1,
+     2,
+     4,
+     "NDN"
+    ],
+    [
+     "FC Bouguenais",
+     0,
+     1,
+     2,
+     1,
+     5,
+     "DND"
+    ],
+    [
+     "AS Couëron Nord",
+     0,
+     0,
+     3,
+     1,
+     5,
+     "DDD"
+    ]
+   ]
+  }
+ ],
+ "calendar": {
+  "seniors-a": [
+   [
+    "2026-10-04T15:00",
+    "H",
+    "AS Orvault Est",
+    "Stade Léo-Lagrange",
+    "Départemental 2, J4"
+   ],
+   [
+    "2026-10-11T15:00",
+    "A",
+    "ES Vertou Sud",
+    "Stade de la Sèvre",
+    "Départemental 2, J5"
+   ],
+   [
+    "2026-10-18T15:00",
+    "H",
+    "FC Sautron",
+    "Stade Léo-Lagrange",
+    "Départemental 2, J6"
+   ],
+   [
+    "2026-10-25T15:00",
+    "A",
+    "US Château-Thébaud",
+    "Complexe des Vignes",
+    "Départemental 2, J7"
+   ],
+   [
+    "2026-11-01T15:00",
+    "H",
+    "AS Basse-Goulaine",
+    "Stade Léo-Lagrange",
+    "Départemental 2, J8"
+   ]
+  ],
+  "seniors-b": [
+   [
+    "2026-10-04T13:00",
+    "H",
+    "FC Sèvre-et-Maine",
+    "Stade Léo-Lagrange",
+    "Départemental 4, J4"
+   ],
+   [
+    "2026-10-11T13:00",
+    "A",
+    "AS Carquefou Sud",
+    "Stade municipal",
+    "Départemental 4, J5"
+   ],
+   [
+    "2026-10-18T13:00",
+    "H",
+    "US Sainte-Luce Nord",
+    "Stade Léo-Lagrange",
+    "Départemental 4, J6"
+   ],
+   [
+    "2026-10-25T13:00",
+    "A",
+    "FC Bouguenais",
+    "Stade des Loges",
+    "Départemental 4, J7"
+   ]
+  ],
+  "u18": [
+   [
+    "2026-10-03T17:00",
+    "H",
+    "Olympique Rezé Nord",
+    "Stade Léo-Lagrange",
+    "Départemental 1, J4"
+   ],
+   [
+    "2026-10-10T17:00",
+    "A",
+    "AS Carquefou Sud",
+    "Stade municipal",
+    "Départemental 1, J5"
+   ],
+   [
+    "2026-10-17T14:00",
+    "N",
+    "Tournoi d'automne",
+    "Complexe Jean-Bouin",
+    "Tournoi"
+   ],
+   [
+    "2026-10-24T17:00",
+    "H",
+    "FC Bouguenais",
+    "Stade Léo-Lagrange",
+    "Départemental 1, J6"
+   ]
+  ],
+  "u15": [
+   [
+    "2026-10-03T15:00",
+    "H",
+    "Olympique Rezé Nord",
+    "Stade Léo-Lagrange",
+    "Départemental 1, J4"
+   ],
+   [
+    "2026-10-10T14:30",
+    "A",
+    "AS Basse-Goulaine",
+    "Complexe des Ormeaux",
+    "Départemental 1, J5"
+   ],
+   [
+    "2026-10-17T09:00",
+    "N",
+    "Tournoi d'automne",
+    "Complexe Jean-Bouin",
+    "Tournoi"
+   ],
+   [
+    "2026-10-24T15:00",
+    "H",
+    "Coupe de district, 1er tour",
+    "Stade Léo-Lagrange",
+    "Coupe de district"
+   ],
+   [
+    "2026-11-07T14:30",
+    "A",
+    "FC Sautron",
+    "Stade des Bruyères",
+    "Départemental 1, J6"
+   ]
+  ],
+  "u13": [
+   [
+    "2026-10-03T15:00",
+    "H",
+    "FC Sèvre-et-Maine",
+    "Stade Léo-Lagrange",
+    "Départemental 2, J4"
+   ],
+   [
+    "2026-10-10T14:00",
+    "A",
+    "US Château-Thébaud",
+    "Complexe des Ormeaux",
+    "Départemental 2, J5"
+   ],
+   [
+    "2026-10-17T09:00",
+    "N",
+    "Tournoi d'automne",
+    "Complexe Jean-Bouin",
+    "Tournoi"
+   ],
+   [
+    "2026-10-24T15:00",
+    "H",
+    "AS Basse-Goulaine",
+    "Stade Léo-Lagrange",
+    "Départemental 2, J6"
+   ]
+  ],
+  "u11": [
+   [
+    "2026-10-03T10:00",
+    "H",
+    "Plateau à 4 clubs",
+    "Stade Léo-Lagrange",
+    "Plateau U11"
+   ],
+   [
+    "2026-10-10T10:00",
+    "A",
+    "Plateau à 4 clubs",
+    "Complexe des Ormeaux",
+    "Plateau U11"
+   ],
+   [
+    "2026-10-17T09:00",
+    "N",
+    "Tournoi d'automne",
+    "Complexe Jean-Bouin",
+    "Tournoi"
+   ],
+   [
+    "2026-10-24T14:00",
+    "H",
+    "Plateau à 4 clubs",
+    "Stade Léo-Lagrange",
+    "Plateau U11"
+   ]
+  ],
+  "u9": [
+   [
+    "2026-10-03T10:00",
+    "H",
+    "Plateau à 4 clubs",
+    "Stade Léo-Lagrange",
+    "Plateau U9"
+   ],
+   [
+    "2026-10-10T10:00",
+    "A",
+    "Plateau à 4 clubs",
+    "Complexe des Ormeaux",
+    "Plateau U9"
+   ],
+   [
+    "2026-10-17T09:00",
+    "N",
+    "Tournoi d'automne",
+    "Complexe Jean-Bouin",
+    "Tournoi"
+   ],
+   [
+    "2026-10-24T10:00",
+    "H",
+    "Plateau à 4 clubs",
+    "Stade Léo-Lagrange",
+    "Plateau U9"
+   ]
+  ]
+ },
+ "news": [
+  {
+   "date": "2026-09-28",
+   "tag": "Sport",
+   "title": "Les U18 démarrent la saison sur trois victoires",
+   "excerpt": "Après le 4-0 contre Vertou, l'équipe de Sofiane prend la tête du championnat avec neuf points et seulement deux buts encaissés. Prochain rendez-vous samedi 3 octobre à domicile face à Rezé Nord."
+  },
+  {
+   "date": "2026-09-25",
+   "tag": "Stage",
+   "title": "Stage de la Toussaint : les places partent vite",
+   "excerpt": "Du 26 au 30 octobre, le stade accueille les U9 à U15 pour cinq jours de football, de jeux et de repas partagés. 48 places sur 60 sont déjà réservées."
+  },
+  {
+   "date": "2026-09-22",
+   "tag": "Club",
+   "title": "Inscriptions ouvertes jusqu'au 31 octobre",
+   "excerpt": "Il est encore temps de rejoindre le club pour la saison 2026-2027. Le dossier se remplit en ligne en dix minutes, permanence au club-house le mercredi et le samedi."
+  },
+  {
+   "date": "2026-09-18",
+   "tag": "Boutique",
+   "title": "La collection 2026-2027 est arrivée",
+   "excerpt": "Maillots domicile et extérieur, sweat à capuche, écharpe et sac de sport sont disponibles au club-house. Les commandes groupées d'équipe sont possibles."
+  }
+ ],
+ "events": [
+  {
+   "start": "2026-10-17",
+   "end": null,
+   "time": "9h00",
+   "title": "Tournoi d'automne",
+   "place": "Complexe Jean-Bouin",
+   "tag": "Tournoi",
+   "text": "32 équipes de U9 à U15 sur cinq terrains, buvette et animations toute la journée."
+  },
+  {
+   "start": "2026-10-23",
+   "end": null,
+   "time": "19h30",
+   "title": "Soirée des partenaires",
+   "place": "Club-house",
+   "tag": "Vie du club",
+   "text": "Une soirée pour remercier celles et ceux qui soutiennent le club, sur invitation."
+  },
+  {
+   "start": "2026-10-26",
+   "end": "2026-10-30",
+   "time": "9h00",
+   "title": "Stage de la Toussaint",
+   "place": "Stade Léo-Lagrange",
+   "tag": "Stage",
+   "text": "Football, jeux et repas partagés pour les U9 à U15, de 9h à 17h."
+  },
+  {
+   "start": "2026-11-14",
+   "end": null,
+   "time": "10h00",
+   "title": "Assemblée générale",
+   "place": "Club-house",
+   "tag": "Vie du club",
+   "text": "Bilan de la saison, comptes et élection du bureau, ouverte à tous les licenciés."
+  },
+  {
+   "start": "2026-12-05",
+   "end": null,
+   "time": "18h30",
+   "title": "Loto du club",
+   "place": "Salle des fêtes",
+   "tag": "Animation",
+   "text": "Le rendez-vous de fin d'année, lots à gagner et buvette au profit de l'école de foot."
+  }
+ ],
+ "registration": {
+  "deadline": "31 octobre 2026",
+  "steps": [
+   {
+    "title": "Choisir la catégorie",
+    "text": "Selon l'âge du joueur, du U7 aux vétérans. En cas de doute, la permanence vous oriente."
+   },
+   {
+    "title": "Remplir la pré-inscription",
+    "text": "Le formulaire ci-contre prend deux minutes. Le secrétariat vous répond sous 48 heures."
+   },
+   {
+    "title": "Déposer les pièces",
+    "text": "Certificat médical, photo d'identité, fiche de renseignements et autorisation parentale pour les mineurs."
+   },
+   {
+    "title": "Régler la cotisation",
+    "text": "Par chèque, espèces ou virement, en une fois ou en trois versements sans frais."
+   }
+  ],
+  "prices": [
+   {
+    "cat": "U7 à U9",
+    "ages": "5 à 9 ans",
+    "price": 130
+   },
+   {
+    "cat": "U11 à U13",
+    "ages": "10 à 13 ans",
+    "price": 150
+   },
+   {
+    "cat": "U15 à U18",
+    "ages": "14 à 18 ans",
+    "price": 170
+   },
+   {
+    "cat": "Seniors",
+    "ages": "dès 19 ans",
+    "price": 190
+   },
+   {
+    "cat": "Vétérans",
+    "ages": "dès 35 ans",
+    "price": 110
+   }
+  ]
+ },
+ "shop": {
+  "pickup": "Retrait au club-house, mercredi et samedi de 14h à 17h",
+  "products": [
+   {
+    "id": "maillot-dom",
+    "name": "Maillot domicile 2026-2027",
+    "price": 49,
+    "sizes": "Enfant 6 à 14 ans, XS à XXL",
+    "kind": "jersey",
+    "tone": "red",
+    "badge": "Nouveauté"
+   },
+   {
+    "id": "maillot-ext",
+    "name": "Maillot extérieur 2026-2027",
+    "price": 49,
+    "sizes": "Enfant 6 à 14 ans, XS à XXL",
+    "kind": "jersey",
+    "tone": "white",
+    "badge": "Nouveauté"
+   },
+   {
+    "id": "short",
+    "name": "Short de match",
+    "price": 22,
+    "sizes": "Enfant 6 à 14 ans, XS à XXL",
+    "kind": "shorts",
+    "tone": "red",
+    "badge": null
+   },
+   {
+    "id": "sweat",
+    "name": "Sweat à capuche",
+    "price": 55,
+    "sizes": "S à XXL",
+    "kind": "hoodie",
+    "tone": "dark",
+    "badge": null
+   },
+   {
+    "id": "echarpe",
+    "name": "Écharpe supporter",
+    "price": 15,
+    "sizes": "Taille unique",
+    "kind": "scarf",
+    "tone": "red",
+    "badge": null
+   },
+   {
+    "id": "sac",
+    "name": "Sac de sport",
+    "price": 38,
+    "sizes": "35 litres",
+    "kind": "bag",
+    "tone": "dark",
+    "badge": null
+   }
+  ]
+ }
+}

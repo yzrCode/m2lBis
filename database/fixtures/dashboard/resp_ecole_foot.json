@@ -1,0 +1,442 @@
+{
+ "lead": "114 enfants de U7 à U11. Trois plateaux ce mois-ci, dont un samedi avec 4 clubs invités.",
+ "counts": {
+  "/plateaux": 3
+ },
+ "hero": {
+  "type": "focus",
+  "title": "Enfants à l'école de foot",
+  "value": "114",
+  "caption": "de U7 à U11, répartis en 9 groupes et encadrés par 14 animateurs",
+  "ring": {
+   "percent": 89,
+   "value": "89 %",
+   "label": "de présence ce mois-ci"
+  },
+  "actions": [
+   {
+    "label": "Voir les plateaux",
+    "kind": "primary",
+    "href": "#panel-plateaux"
+   },
+   {
+    "label": "Envoyer les convocations",
+    "kind": "ghost",
+    "toast": "Convocations envoyées",
+    "done": "Convocations envoyées"
+   }
+  ]
+ },
+ "agenda": {
+  "title": "Cette semaine",
+  "items": [
+   {
+    "day": "Mer",
+    "n": "30",
+    "title": "Entraînements U9 et U11",
+    "meta": "17h30, Terrain 2"
+   },
+   {
+    "day": "Sam",
+    "n": "03",
+    "title": "Plateau U9 et U11",
+    "meta": "10h00, Stade Léo-Lagrange, 4 clubs invités",
+    "highlight": true
+   },
+   {
+    "day": "Lun",
+    "n": "05",
+    "title": "Point avec le service civique",
+    "meta": "17h00, avec Maël Guérin"
+   },
+   {
+    "day": "Mer",
+    "n": "07",
+    "title": "Réunion des animateurs",
+    "meta": "19h00, club-house"
+   }
+  ]
+ },
+ "kpis": [
+  {
+   "label": "Enfants inscrits",
+   "value": "114",
+   "hint": "24 U7, 38 U9, 52 U11",
+   "icon": "users",
+   "tone": "ok",
+   "chip": {
+    "tone": "ok",
+    "label": "+9",
+    "dir": "up"
+   },
+   "spark": [
+    96,
+    101,
+    105,
+    109,
+    114
+   ]
+  },
+  {
+   "label": "Présence moyenne",
+   "value": "89 %",
+   "hint": "Sur les 4 dernières semaines",
+   "icon": "activity",
+   "chip": {
+    "tone": "ok",
+    "label": "+2 pts",
+    "dir": "up"
+   },
+   "spark": [
+    84,
+    86,
+    88,
+    87,
+    89
+   ]
+  },
+  {
+   "label": "Animateurs",
+   "value": "14",
+   "hint": "3 en cours de formation",
+   "icon": "graduation",
+   "chip": {
+    "tone": "neutral",
+    "label": "Complet"
+   },
+   "spark": [
+    11,
+    12,
+    13,
+    14
+   ]
+  },
+  {
+   "label": "Plateaux ce mois-ci",
+   "value": "3",
+   "hint": "Les 3, 10 et 24 octobre",
+   "icon": "trophy",
+   "chip": {
+    "tone": "neutral",
+    "label": "2 à domicile"
+   }
+  }
+ ],
+ "panels": [
+  {
+   "type": "convocations",
+   "id": "plateaux",
+   "title": "Prochains plateaux",
+   "items": [
+    {
+     "day": "03",
+     "month": "oct.",
+     "tag": "U9 et U11",
+     "title": "Plateau à domicile, 4 clubs invités",
+     "meta": [
+      "Samedi 10h00",
+      "Stade Léo-Lagrange",
+      "Domicile"
+     ],
+     "responses": {
+      "yes": 71,
+      "no": 6,
+      "pending": 13
+     },
+     "actions": [
+      {
+       "label": "Relancer les 13 familles",
+       "kind": "ghost",
+       "toast": "Relance envoyée",
+       "done": "Relance envoyée"
+      }
+     ]
+    },
+    {
+     "day": "10",
+     "month": "oct.",
+     "tag": "U9",
+     "title": "Plateau chez l'AS Basse-Goulaine",
+     "meta": [
+      "Samedi 10h00",
+      "Complexe des Ormeaux",
+      "Extérieur"
+     ],
+     "responses": {
+      "yes": 22,
+      "no": 3,
+      "pending": 13
+     },
+     "actions": [
+      {
+       "label": "Relancer les 13 familles",
+       "kind": "ghost",
+       "toast": "Relance envoyée",
+       "done": "Relance envoyée"
+      }
+     ]
+    },
+    {
+     "day": "24",
+     "month": "oct.",
+     "tag": "U11",
+     "title": "Plateau à domicile",
+     "meta": [
+      "Samedi 14h00",
+      "Stade Léo-Lagrange",
+      "Domicile"
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "Convocations à envoyer"
+     },
+     "actions": [
+      {
+       "label": "Envoyer les convocations",
+       "kind": "primary",
+       "toast": "Convocations envoyées",
+       "set": {
+        "tone": "ok",
+        "label": "Envoyées"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "categories",
+   "id": "categories",
+   "title": "Enfants par catégorie",
+   "full": false,
+   "unit": "",
+   "items": [
+    {
+     "name": "U7",
+     "count": 24
+    },
+    {
+     "name": "U9",
+     "count": 38
+    },
+    {
+     "name": "U11",
+     "count": 52
+    }
+   ],
+   "subtitle": "114 enfants, 9 groupes"
+  },
+  {
+   "type": "table",
+   "id": "groupes",
+   "title": "Groupes et séances",
+   "full": true,
+   "columns": [
+    "Groupe",
+    "Animateur",
+    "Séance",
+    "Effectif",
+    "Présence"
+   ],
+   "statusLabel": "Statut",
+   "rows": [
+    {
+     "cells": [
+      "U7 A",
+      "Sofiane Kader",
+      "Mercredi 14h00",
+      "12",
+      "92 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U7 B",
+      "Anaïs Roux",
+      "Mercredi 15h30",
+      "12",
+      "88 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U9 A",
+      "Rayan Hamdi",
+      "Mercredi 17h30",
+      "13",
+      "91 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U9 B",
+      "Lucie Perrot",
+      "Mercredi 17h30",
+      "13",
+      "90 %"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "Animateur absent"
+     },
+     "actions": [
+      {
+       "label": "Chercher un remplaçant",
+       "kind": "primary",
+       "toast": "Demande envoyée aux animateurs",
+       "set": {
+        "tone": "ok",
+        "label": "Remplaçant trouvé"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "U9 C",
+      "Mehdi Cissé",
+      "Mercredi 17h30",
+      "12",
+      "86 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U11 A",
+      "Julie Fabre",
+      "Mercredi 17h30",
+      "13",
+      "89 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U11 B",
+      "Nicolas Prat",
+      "Mercredi 17h30",
+      "13",
+      "93 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U11 C",
+      "Chloé Martel",
+      "Samedi 10h00",
+      "13",
+      "87 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    },
+    {
+     "cells": [
+      "U11 D",
+      "Bastien Roy",
+      "Samedi 10h00",
+      "13",
+      "85 %"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Complet"
+     }
+    }
+   ],
+   "filters": [
+    {
+     "key": "pending",
+     "label": "À traiter"
+    },
+    {
+     "key": "valid",
+     "label": "Complets"
+    }
+   ]
+  },
+  {
+   "type": "trend",
+   "id": "presence-ecole",
+   "title": "Présence moyenne",
+   "full": true,
+   "labels": [
+    "S33",
+    "S34",
+    "S35",
+    "S36",
+    "S37",
+    "S38",
+    "S39",
+    "S40"
+   ],
+   "values": [
+    82,
+    84,
+    85,
+    88,
+    87,
+    86,
+    88,
+    89
+   ],
+   "unit": " %",
+   "min": 60,
+   "max": 100,
+   "subtitle": "8 dernières semaines"
+  }
+ ],
+ "notifications": [
+  {
+   "tone": "warn",
+   "title": "13 familles n'ont pas répondu",
+   "text": "Plateau du 3 octobre, à domicile.",
+   "time": "Il y a 2 h",
+   "unread": true
+  },
+  {
+   "tone": "warn",
+   "title": "Animateur absent : groupe U9 B",
+   "text": "Mercredi 30 septembre, 17h30.",
+   "time": "Hier",
+   "unread": true
+  },
+  {
+   "tone": "ok",
+   "title": "Plateau du 26 septembre",
+   "text": "38 enfants et 4 clubs, aucun incident à signaler.",
+   "time": "Il y a 3 jours"
+  },
+  {
+   "tone": "neutral",
+   "title": "Formation animateur fédéral",
+   "text": "2 places restantes pour la session de novembre.",
+   "time": "Il y a 1 semaine"
+  }
+ ]
+}

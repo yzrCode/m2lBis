@@ -1,0 +1,66 @@
+/* ===================== Design tokens ===================== */
+:root{
+  color-scheme:light;
+  --red-900:#7F1D1D; --red-800:#991B1B; --red-700:#B91C1C; --red-600:#DC2626; --red-500:#EF4444;
+
+  --bg:#F8F9FA; --surface:#FFFFFF; --surface-2:#F9FAFB;
+  --ink:#1F2937; --ink-soft:#4B5563; --ink-mute:#6B7280;
+  --line:#E5E7EB; --line-soft:#EEF0F3; --line-strong:#D1D5DB;
+
+  --accent:#DC2626; --accent-text:#B91C1C; --accent-bg:#FEF2F2; --accent-line:#FEE2E2; --focus:#DC2626;
+
+  --ok:#15803D;      --ok-bg:#DCFCE7;      --ok-solid:#16A34A;
+  --warn:#B45309;    --warn-bg:#FEF3C7;    --warn-solid:#F59E0B;
+  --danger:#B91C1C;  --danger-bg:#FEE2E2;
+  --neutral:#374151; --neutral-bg:#F1F2F4;
+
+  --chart:#DC2626;
+  --side-a:#C21F1F; --side-b:#7A1B1B;
+
+  --shadow-card:0 1px 2px rgba(16,24,40,.04),0 12px 28px -16px rgba(16,24,40,.16);
+  --shadow-pop:0 28px 70px -14px rgba(16,24,40,.38);
+
+  --font-display:'Archivo','Arial Narrow',system-ui,sans-serif;
+  --font-body:'Figtree',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --sidebar-w:276px;
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0D0F12; --surface:#15181D; --surface-2:#1A1E24;
+  --ink:#F3F4F6; --ink-soft:#B8BFCA; --ink-mute:#8E97A5;
+  --line:#262B33; --line-soft:#1F232A; --line-strong:#3A404B;
+  --accent:#EF4444; --accent-text:#FCA5A5; --accent-bg:rgba(239,68,68,.14); --accent-line:rgba(248,113,113,.28); --focus:#FCA5A5;
+  --ok:#4ADE80; --ok-bg:rgba(34,197,94,.15);
+  --warn:#FBBF24; --warn-bg:rgba(245,158,11,.15);
+  --danger:#F87171; --danger-bg:rgba(239,68,68,.16);
+  --neutral:#D1D5DB; --neutral-bg:rgba(255,255,255,.07);
+  --chart:#F87171;
+  --side-a:#8E1717; --side-b:#3F0D0E;
+  --shadow-card:0 1px 2px rgba(0,0,0,.4),0 12px 28px -16px rgba(0,0,0,.6);
+  --shadow-pop:0 28px 70px -14px rgba(0,0,0,.7);
+}
+
+/* ===================== Base ===================== */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.5 var(--font-body);-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+body.nav-open{overflow:hidden}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}
+ul{padding:0;list-style:none}
+button,input{font:inherit;color:inherit}
+a{color:var(--accent-text)}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.sidebar :focus-visible,.hero :focus-visible{outline-color:#fff}
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.muted{color:var(--ink-mute)}
+.num{font-variant-numeric:tabular-nums}
+.display{font-family:var(--font-display);font-stretch:70%;font-weight:800;letter-spacing:-.005em}
+.skip-link{position:absolute;left:12px;top:-64px;z-index:200;background:#fff;color:var(--red-700);padding:10px 16px;border-radius:8px;font-weight:600}
+.skip-link:focus{top:12px;box-shadow:var(--shadow-pop)}
+.ic{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic--sm{width:16px;height:16px}
+.ic--lg{width:32px;height:32px}
+kbd{font:600 .75rem var(--font-body);padding:2px 7px;border-radius:6px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink-mute)}
+

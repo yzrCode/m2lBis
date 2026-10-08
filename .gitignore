@@ -1,0 +1,28 @@
+# Fichiers de configuration et secrets (TRÈS IMPORTANT)
+.env
+.env.backup
+.env.production
+config.local.php
+
+# Dépendances PHP (Composer) & Node.js
+/vendor/
+/node_modules/
+
+# Fichiers temporaires, cache et sessions du framework
+/storage/*.key
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+/bootstrap/cache/*
+
+# Base de données SQLite locale ou dumps de logs
+/*.sqlite
+/*.sqlite-journal
+*.log
+
+# Fichiers d'environnement / IDE / Système
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

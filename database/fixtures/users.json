@@ -1,0 +1,90 @@
+[
+ {
+  "id": "u1",
+  "prenom": "Sophie",
+  "nom": "Martin",
+  "email": "sophie.martin@example.fr",
+  "role": "licencie",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u2",
+  "prenom": "Karim",
+  "nom": "Benali",
+  "email": "karim.benali@m2l-fc.fr",
+  "role": "educateur",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u3",
+  "prenom": "Claire",
+  "nom": "Dubois",
+  "email": "claire.dubois@m2l-fc.fr",
+  "role": "secretaire",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u4",
+  "prenom": "Philippe",
+  "nom": "Roux",
+  "email": "philippe.roux@m2l-fc.fr",
+  "role": "president",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u5",
+  "prenom": "Nadia",
+  "nom": "Lefebvre",
+  "email": "nadia.lefebvre@m2l-fc.fr",
+  "role": "tresorier",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u6",
+  "prenom": "Maël",
+  "nom": "Guérin",
+  "email": "mael.guerin@m2l-fc.fr",
+  "role": "service_civique",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u7",
+  "prenom": "Julien",
+  "nom": "Renaud",
+  "email": "julien.renaud@m2l-fc.fr",
+  "role": "arbitre",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u8",
+  "prenom": "Amélie",
+  "nom": "Bertrand",
+  "email": "amelie.bertrand@m2l-fc.fr",
+  "role": "resp_evenementiel",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u9",
+  "prenom": "Thomas",
+  "nom": "Lemaire",
+  "email": "thomas.lemaire@m2l-fc.fr",
+  "role": "resp_achats",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u10",
+  "prenom": "Antoine",
+  "nom": "Morel",
+  "email": "antoine.morel@m2l-fc.fr",
+  "role": "resp_tournois",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ },
+ {
+  "id": "u11",
+  "prenom": "Émilie",
+  "nom": "Vasseur",
+  "email": "emilie.vasseur@m2l-fc.fr",
+  "role": "resp_ecole_foot",
+  "password_hash": "$2y$10$dSdKwJU8tMb7tq.z6COY2OEE6pfYo7o4E4HakNt5pd63eEqKcqbtK"
+ }
+]

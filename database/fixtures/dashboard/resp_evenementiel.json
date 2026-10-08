@@ -1,0 +1,365 @@
+{
+ "lead": "La soirée des partenaires est dans 24 jours : 86 inscrits sur 120 places, il reste à finaliser le traiteur et la sono.",
+ "counts": {
+  "/evenements": 5,
+  "/benevoles": 1
+ },
+ "hero": {
+  "type": "focus",
+  "title": "Soirée des partenaires",
+  "value": "J-24",
+  "caption": "avant la soirée du vendredi 23 octobre, 19h30, au club-house",
+  "ring": {
+   "percent": 72,
+   "value": "72 %",
+   "label": "de la préparation prête"
+  },
+  "actions": [
+   {
+    "label": "Voir la checklist",
+    "kind": "primary",
+    "href": "#panel-checklist"
+   },
+   {
+    "label": "Envoyer un rappel aux inscrits",
+    "kind": "ghost",
+    "toast": "Rappel envoyé",
+    "done": "Rappel envoyé"
+   }
+  ]
+ },
+ "agenda": {
+  "title": "À venir",
+  "items": [
+   {
+    "day": "Jeu",
+    "n": "01",
+    "title": "Point avec le traiteur",
+    "meta": "1er octobre, 18h00, devis à valider"
+   },
+   {
+    "day": "Ven",
+    "n": "09",
+    "title": "2e vague d'invitations",
+    "meta": "9 octobre, partenaires et élus"
+   },
+   {
+    "day": "Sam",
+    "n": "17",
+    "title": "Tournoi d'automne",
+    "meta": "17 octobre, buvette et animations",
+    "highlight": true
+   },
+   {
+    "day": "Ven",
+    "n": "23",
+    "title": "Soirée des partenaires",
+    "meta": "23 octobre, 19h30, club-house"
+   }
+  ]
+ },
+ "kpis": [
+  {
+   "label": "Événements à venir",
+   "value": "5",
+   "hint": "Dont 2 en octobre",
+   "icon": "star",
+   "chip": {
+    "tone": "neutral",
+    "label": "Jusqu'en décembre"
+   },
+   "spark": [
+    2,
+    3,
+    3,
+    4,
+    5
+   ]
+  },
+  {
+   "label": "Inscrits à la soirée",
+   "value": "86",
+   "hint": "sur 120 places",
+   "icon": "users",
+   "tone": "ok",
+   "chip": {
+    "tone": "ok",
+    "label": "+14 cette semaine",
+    "dir": "up"
+   },
+   "spark": [
+    4,
+    18,
+    35,
+    52,
+    71,
+    86
+   ]
+  },
+  {
+   "label": "Budget consommé",
+   "value": "64 %",
+   "hint": "Soirée des partenaires",
+   "icon": "euro",
+   "chip": {
+    "tone": "warn",
+    "label": "Traiteur à payer"
+   },
+   "meter": {
+    "percent": 64,
+    "label": "3 840 € sur 6 000 €"
+   }
+  },
+  {
+   "label": "Bénévoles mobilisés",
+   "value": "23",
+   "hint": "Besoin de 30 pour le tournoi",
+   "icon": "users",
+   "tone": "warn",
+   "chip": {
+    "tone": "warn",
+    "label": "7 manquants"
+   },
+   "spark": [
+    8,
+    12,
+    15,
+    19,
+    23
+   ]
+  }
+ ],
+ "panels": [
+  {
+   "type": "tasks",
+   "id": "checklist",
+   "title": "Checklist de la soirée",
+   "full": false,
+   "items": [
+    {
+     "title": "Réserver le club-house et la terrasse",
+     "meta": "Réservation confirmée le 12 septembre",
+     "status": {
+      "tone": "ok",
+      "label": "Fait"
+     }
+    },
+    {
+     "title": "Valider le devis du traiteur",
+     "meta": "Trois devis reçus, réponse attendue jeudi",
+     "actions": [
+      {
+       "label": "Valider",
+       "kind": "primary",
+       "toast": "Devis validé",
+       "set": {
+        "tone": "ok",
+        "label": "Devis validé"
+       }
+      }
+     ]
+    },
+    {
+     "title": "Commander la sono et l'éclairage",
+     "meta": "Le prestataire doit confirmer sa disponibilité",
+     "actions": [
+      {
+       "label": "Relancer",
+       "kind": "ghost",
+       "toast": "Relance envoyée",
+       "done": "Relance envoyée"
+      }
+     ]
+    },
+    {
+     "title": "Envoyer la 2e vague d'invitations",
+     "meta": "Prévue le 9 octobre",
+     "status": {
+      "tone": "neutral",
+      "label": "Planifié"
+     }
+    },
+    {
+     "title": "Recruter 6 bénévoles pour le service",
+     "meta": "Aucun bénévole positionné pour le moment",
+     "actions": [
+      {
+       "label": "Publier l'appel",
+       "kind": "primary",
+       "toast": "Appel publié",
+       "set": {
+        "tone": "ok",
+        "label": "Appel publié"
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "type": "trend",
+   "id": "inscriptions",
+   "title": "Inscriptions à la soirée",
+   "full": false,
+   "labels": [
+    "S35",
+    "S36",
+    "S37",
+    "S38",
+    "S39",
+    "S40"
+   ],
+   "values": [
+    4,
+    18,
+    35,
+    52,
+    71,
+    86
+   ],
+   "unit": "",
+   "min": 0,
+   "max": 120,
+   "subtitle": "Cumul des inscrits, sur 120 places"
+  },
+  {
+   "type": "table",
+   "id": "evenements",
+   "title": "Événements de la saison",
+   "full": true,
+   "columns": [
+    "Date",
+    "Événement",
+    "Lieu",
+    "Inscrits"
+   ],
+   "statusLabel": "Statut",
+   "rows": [
+    {
+     "cells": [
+      "17 oct.",
+      "Tournoi d'automne",
+      "Complexe Jean-Bouin",
+      "24 équipes"
+     ],
+     "status": {
+      "tone": "ok",
+      "label": "Confirmé"
+     }
+    },
+    {
+     "cells": [
+      "23 oct.",
+      "Soirée des partenaires",
+      "Club-house",
+      "86 sur 120"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "En préparation"
+     }
+    },
+    {
+     "cells": [
+      "26 au 30 oct.",
+      "Stage de la Toussaint",
+      "Stade Léo-Lagrange",
+      "48 sur 60"
+     ],
+     "status": {
+      "tone": "warn",
+      "label": "En préparation"
+     }
+    },
+    {
+     "cells": [
+      "14 nov.",
+      "Assemblée générale",
+      "Club-house",
+      "À ouvrir"
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "À lancer"
+     },
+     "actions": [
+      {
+       "label": "Lancer les inscriptions",
+       "kind": "primary",
+       "toast": "Inscriptions ouvertes",
+       "set": {
+        "tone": "ok",
+        "label": "Inscriptions ouvertes"
+       }
+      }
+     ]
+    },
+    {
+     "cells": [
+      "5 déc.",
+      "Loto du club",
+      "Salle des fêtes",
+      "À ouvrir"
+     ],
+     "status": {
+      "tone": "neutral",
+      "label": "À lancer"
+     },
+     "actions": [
+      {
+       "label": "Lancer les inscriptions",
+       "kind": "primary",
+       "toast": "Inscriptions ouvertes",
+       "set": {
+        "tone": "ok",
+        "label": "Inscriptions ouvertes"
+       }
+      }
+     ]
+    }
+   ],
+   "filters": [
+    {
+     "key": "pending",
+     "label": "En préparation"
+    },
+    {
+     "key": "valid",
+     "label": "Confirmés"
+    },
+    {
+     "key": "other",
+     "label": "À lancer"
+    }
+   ]
+  }
+ ],
+ "notifications": [
+  {
+   "tone": "warn",
+   "title": "Devis du traiteur à valider",
+   "text": "Réponse attendue avant jeudi 1er octobre.",
+   "time": "Il y a 1 h",
+   "unread": true
+  },
+  {
+   "tone": "warn",
+   "title": "7 bénévoles manquent pour le tournoi",
+   "text": "Le besoin est de 30, 23 sont mobilisés.",
+   "time": "Hier",
+   "unread": true
+  },
+  {
+   "tone": "ok",
+   "title": "86e inscription à la soirée",
+   "text": "Il reste 34 places.",
+   "time": "Il y a 2 jours"
+  },
+  {
+   "tone": "neutral",
+   "title": "Salle confirmée",
+   "text": "Club-house et terrasse réservés le 23 octobre.",
+   "time": "Il y a 2 semaines"
+  }
+ ]
+}
