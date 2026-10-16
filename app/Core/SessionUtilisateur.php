@@ -3,9 +3,10 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-final class Session
+/** Gère la session et les messages temporaires transmis à la page suivante. */
+final class SessionUtilisateur
 {
-    public static function start(): void
+    public static function demarrer(): void
     {
         if (session_status() === PHP_SESSION_ACTIVE) {
             return;
@@ -22,29 +23,30 @@ final class Session
         session_start();
     }
 
-    public static function flash(string $type, string $message): void
+    public static function messageFlash(string $type, string $message): void
     {
         $_SESSION['flash'] = ['type' => $type, 'message' => $message];
     }
 
-    /** Lit puis efface le message flash. */
-    public static function pullFlash(): ?array
+    /** Lit puis efface le message temporaire pour qu'il ne s'affiche qu'une fois. */
+    public static function recupererMessageFlash(): ?array
     {
-        $flash = $_SESSION['flash'] ?? null;
+        // Un message flash est consommé ici pour ne s'afficher qu'une seule fois.
+        $messageFlash = $_SESSION['flash'] ?? null;
         unset($_SESSION['flash']);
-        return $flash;
+        return $messageFlash;
     }
 
     /** Conserve la saisie d'un formulaire refusé pour le réafficher. */
-    public static function keepOld(array $input): void
+    public static function conserverAncienneSaisie(array $saisie): void
     {
-        $_SESSION['old'] = $input;
+        $_SESSION['old'] = $saisie;
     }
 
-    public static function pullOld(): array
+    public static function recupererAncienneSaisie(): array
     {
-        $old = $_SESSION['old'] ?? [];
+        $ancienneSaisie = $_SESSION['old'] ?? [];
         unset($_SESSION['old']);
-        return $old;
+        return $ancienneSaisie;
     }
 }

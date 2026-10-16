@@ -12,22 +12,23 @@
       <p class="login__lead">Connectez-vous avec l'adresse e-mail de votre compte club.</p>
 
       <?php if (!empty($flash)): ?>
-        <p class="notice notice--<?= e($flash['type'] === 'error' ? 'error' : 'ok') ?>" role="alert"><?= e($flash['message']) ?></p>
+        <p class="notice notice--<?= echapperHtml($flash['type'] === 'error' ? 'error' : 'ok') ?>" role="alert"><?= echapperHtml($flash['message']) ?></p>
       <?php endif; ?>
 
       <form method="post" action="/connexion" novalidate>
-        <?= csrf_field() ?>
-        <input type="hidden" name="next" value="<?= e($next) ?>">
+        <?= champCsrf() ?>
+        <input type="hidden" name="next" value="<?= echapperHtml($next) ?>">
         <label class="field-block">
           <span>Adresse e-mail</span>
-          <input type="email" name="email" value="<?= e($email) ?>" autocomplete="username" required autofocus>
+          <input type="email" name="email" value="<?= echapperHtml($email) ?>" autocomplete="username" required autofocus>
         </label>
         <label class="field-block">
           <span>Mot de passe</span>
           <input type="password" name="password" autocomplete="current-password" required>
         </label>
-        <button class="btn btn--primary btn--block" type="submit"<?= $locked ? ' disabled' : '' ?>>Se connecter</button>
+        <button class="btn btn--primary btn--block" type="submit"<?= $connexionVerrouillee ? ' disabled' : '' ?>>Se connecter</button>
       </form>
+      <a class="btn btn--ghost btn--block" href="/creation-compte">Vous êtes membre du personnel ?</a>
     </div>
   </section>
 </main>

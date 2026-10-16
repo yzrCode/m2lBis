@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?= e($club['name']) ?> · Résultats, classements, calendriers et inscriptions</title>
-<meta name="description" content="Suivez les résultats, les classements et les calendriers de toutes les équipes du <?= e($club['name']) ?>, et inscrivez-vous pour la <?= e(mb_strtolower($season['label'])) ?>.">
-<script src="<?= e(asset('js/theme.js')) ?>"></script>
+<title><?= echapperHtml($club['name']) ?> · Résultats, classements, calendriers et inscriptions</title>
+<meta name="description" content="Suivez les résultats, les classements et les calendriers de toutes les équipes du <?= echapperHtml($club['name']) ?>, et inscrivez-vous pour la <?= echapperHtml(mb_strtolower($season['label'])) ?>.">
+<script src="<?= echapperHtml(urlRessource('js/theme.js')) ?>"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(asset('css/base.css')) ?>">
-<link rel="stylesheet" href="<?= e(asset('css/site.css')) ?>">
+<link rel="stylesheet" href="<?= echapperHtml(urlRessource('css/base.css')) ?>">
+<link rel="stylesheet" href="<?= echapperHtml(urlRessource('css/site.css')) ?>">
 </head>
 <body class="site">
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -18,7 +18,7 @@
 
 <header class="site-header" id="top">
   <div class="wrap site-header__in">
-    <a class="site-brand" href="/" aria-label="<?= e($club['name']) ?>, accueil">
+    <a class="site-brand" href="/" aria-label="<?= echapperHtml($club['name']) ?>, accueil">
       <svg class="site-brand__crest" viewBox="0 0 40 46" aria-hidden="true"><use href="#crest-m2l-red"/></svg>
       <span><strong>M2L</strong><small>Football Club</small></span>
     </a>
@@ -29,7 +29,6 @@
       <a href="#actualites">Actualités</a>
       <a href="#evenements">Événements</a>
       <a href="#inscriptions">Inscriptions</a>
-      <a href="#boutique">Boutique</a>
     </nav>
     <div class="site-header__actions">
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Changer de thème"></button>
@@ -59,30 +58,29 @@
     <div>
       <h2>Le club</h2>
       <address>
-        <?= e($club['address']) ?><br><?= e($club['city']) ?><br>
-        <a href="tel:<?= e(preg_replace('/\s+/', '', $club['phone'])) ?>"><?= e($club['phone']) ?></a><br>
-        <a href="mailto:<?= e($club['email']) ?>"><?= e($club['email']) ?></a>
+        <?= echapperHtml($club['address']) ?><br><?= echapperHtml($club['city']) ?><br>
+        <a href="tel:<?= echapperHtml(preg_replace('/\s+/', '', $club['phone'])) ?>"><?= echapperHtml($club['phone']) ?></a><br>
+        <a href="mailto:<?= echapperHtml($club['email']) ?>"><?= echapperHtml($club['email']) ?></a>
       </address>
     </div>
     <div>
       <h2>Permanence</h2>
-      <p><?= e($club['permanence']) ?>, au club-house.</p>
+      <p><?= echapperHtml($club['permanence']) ?>, au club-house.</p>
       <p>Inscriptions, boutique et renseignements.</p>
     </div>
     <div>
       <h2>Liens utiles</h2>
       <ul>
         <li><a href="#inscriptions">S'inscrire</a></li>
-        <li><a href="#boutique">Boutique</a></li>
         <li><a href="/connexion">Espace membre</a></li>
       </ul>
     </div>
   </div>
   <div class="wrap site-footer__legal">
-    <p>© <?= date('Y') ?> <?= e($club['name']) ?>. Tous droits réservés.</p>
+    <p>© <?= date('Y') ?> <?= echapperHtml($club['name']) ?>. Tous droits réservés.</p>
   </div>
 </footer>
 
-<script src="<?= e(asset('js/site.js')) ?>" defer></script>
+<script src="<?= echapperHtml(urlRessource('js/site.js')) ?>" defer></script>
 </body>
 </html>

@@ -1,54 +1,54 @@
 <?php
 declare(strict_types=1);
 
-use App\Core\Csrf;
+use App\Core\ProtectionCsrf;
 
 /** Échappement HTML systématique dans les vues. */
-function e(mixed $value): string
+function echapperHtml(mixed $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-/** URL d'un asset avec cache-busting sur la date de modification. */
-function asset(string $path): string
+/** Ajoute le numéro de version d'un fichier pour renouveler le cache du navigateur après modification. */
+function urlRessource(string $chemin): string
 {
-    $file = BASE_PATH . '/public/assets/' . $path;
-    return '/assets/' . $path . '?v=' . (is_file($file) ? filemtime($file) : 1);
+    $fichier = BASE_PATH . '/public/assets/' . $chemin;
+    return '/assets/' . $chemin . '?v=' . (is_file($fichier) ? filemtime($fichier) : 1);
 }
 
-function csrf_field(): string
+function champCsrf(): string
 {
-    return '<input type="hidden" name="_csrf" value="' . e(Csrf::token()) . '">';
+    return '<input type="hidden" name="_csrf" value="' . echapperHtml(ProtectionCsrf::jeton()) . '">';
 }
 
-function redirect(string $to, int $status = 302): never
+function rediriger(string $destination, int $codeHttp = 302): never
 {
-    header('Location: ' . $to, true, $status);
+    header('Location: ' . $destination, true, $codeHttp);
     exit;
 }
 
 /** Initiales d'un nom complet (2 lettres max). */
-function initials(string $fullName): string
+function initiales(string $nomComplet): string
 {
-    $out = '';
-    foreach (preg_split('/\s+/u', trim($fullName)) ?: [] as $word) {
-        if ($word !== '' && mb_strlen($out) < 2) {
-            $out .= mb_strtoupper(mb_substr($word, 0, 1));
+    $initiales = '';
+    foreach (preg_split('/\s+/u', trim($nomComplet)) ?: [] as $mot) {
+        if ($mot !== '' && mb_strlen($initiales) < 2) {
+            $initiales .= mb_strtoupper(mb_substr($mot, 0, 1));
         }
     }
-    return $out;
+    return $initiales;
 }
 
 /** JSON sûr pour être injecté dans une balise <script type="application/json">. */
-function json_for_html(array $data): string
+function jsonPourHtml(array $donnees): string
 {
     return json_encode(
-        $data,
+        $donnees,
         JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR
     );
 }
 
-function money(float|int $amount): string
+function formaterMontant(float|int $montant): string
 {
-    return number_format((float) $amount, 0, ',', "\u{202F}") . "\u{00A0}€";
+    return number_format((float) $montant, 0, ',', "\u{202F}") . "\u{00A0}€";
 }

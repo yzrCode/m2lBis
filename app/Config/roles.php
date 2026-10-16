@@ -4,7 +4,7 @@ declare(strict_types=1);
 /**
  * Registre RBAC : un rôle = un libellé, une action principale et un menu.
  * Un membre ne voit et n'atteint QUE les entrées de son propre rôle
- * (contrôle serveur dans ModuleController et ActionController).
+ * (contrôle serveur dans ControleurModule et ControleurActions).
  * `section` inscrit un intertitre dans le menu au-dessus de l'élément.
  */
 $dash = ['section' => 'Principal', 'label' => 'Tableau de bord', 'icon' => 'dashboard', 'href' => '/tableau-de-bord'];

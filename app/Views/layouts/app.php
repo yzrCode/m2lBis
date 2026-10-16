@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title><?= e($pageTitle) ?> · <?= e($roleLabel) ?> · M2L Football Club</title>
+<title><?= echapperHtml($pageTitle) ?> · <?= echapperHtml($roleLabel) ?> · M2L Football Club</title>
 <meta name="robots" content="noindex">
-<meta name="csrf-token" content="<?= e(\App\Core\Csrf::token()) ?>">
-<script src="<?= e(asset('js/theme.js')) ?>"></script>
+<meta name="csrf-token" content="<?= echapperHtml(\App\Core\ProtectionCsrf::jeton()) ?>">
+<script src="<?= echapperHtml(urlRessource('js/theme.js')) ?>"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= e(asset('css/base.css')) ?>">
-<link rel="stylesheet" href="<?= e(asset('css/dashboard.css')) ?>">
+<link rel="stylesheet" href="<?= echapperHtml(urlRessource('css/base.css')) ?>">
+<link rel="stylesheet" href="<?= echapperHtml(urlRessource('css/dashboard.css')) ?>">
 </head>
-<body data-role="<?= e($user['role']) ?>">
+<body data-role="<?= echapperHtml($user['role']) ?>">
 
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 <?php require BASE_PATH . '/app/Views/partials/sprite.php'; ?>
@@ -21,7 +21,7 @@
 <div class="toast-region" id="toasts" role="status" aria-live="polite"></div>
 <div class="scrim" id="scrim" hidden></div>
 <?php if (!empty($flash)): ?>
-  <div hidden data-flash data-type="<?= e($flash['type']) ?>"><?= e($flash['message']) ?></div>
+  <div hidden data-flash data-type="<?= echapperHtml($flash['type']) ?>"><?= echapperHtml($flash['message']) ?></div>
 <?php endif; ?>
 
 <div class="app">
@@ -42,11 +42,11 @@
     <nav class="nav" aria-label="Navigation principale">
       <ul id="nav">
         <?php foreach ($menu as $item): ?>
-          <?php if (!empty($item['section'])): ?><li class="nav__section" role="presentation"><?= e($item['section']) ?></li><?php endif; ?>
+          <?php if (!empty($item['section'])): ?><li class="nav__section" role="presentation"><?= echapperHtml($item['section']) ?></li><?php endif; ?>
           <li>
-            <a href="<?= e($item['href']) ?>" data-icon="<?= e($item['icon']) ?>"<?= $item['current'] ? ' aria-current="page"' : '' ?>>
-              <svg class="ic" aria-hidden="true"><use href="#i-<?= e($item['icon']) ?>"/></svg>
-              <span><?= e($item['label']) ?></span>
+            <a href="<?= echapperHtml($item['href']) ?>" data-icon="<?= echapperHtml($item['icon']) ?>"<?= $item['current'] ? ' aria-current="page"' : '' ?>>
+              <svg class="ic" aria-hidden="true"><use href="#i-<?= echapperHtml($item['icon']) ?>"/></svg>
+              <span><?= echapperHtml($item['label']) ?></span>
               <?php if (!empty($item['count'])): ?><span class="count" aria-label="<?= (int) $item['count'] ?> en attente"><?= (int) $item['count'] ?></span><?php endif; ?>
             </a>
           </li>
@@ -55,23 +55,23 @@
     </nav>
 
     <div class="season">
-      <p class="season__t"><?= e($season['label']) ?></p>
-      <p class="season__s"><?= e($season['progress']['label']) ?></p>
+      <p class="season__t"><?= echapperHtml($season['label']) ?></p>
+      <p class="season__s"><?= echapperHtml($season['progress']['label']) ?></p>
       <div class="bar bar--light" role="img" aria-label="<?= (int) $season['progress']['percent'] ?> % de la saison écoulée"><span style="--w:<?= (int) $season['progress']['percent'] ?>%"></span></div>
     </div>
 
     <!-- Profil : nom, prénom, e-mail et rôle viennent de la session du membre connecté -->
     <div class="user">
       <div class="user__row">
-        <span class="avatar" aria-hidden="true"><?= e(initials($fullName)) ?></span>
+        <span class="avatar" aria-hidden="true"><?= echapperHtml(initiales($fullName)) ?></span>
         <div class="user__txt">
-          <p class="user__name"><?= e($fullName) ?></p>
-          <p class="user__mail" title="<?= e($user['email']) ?>"><?= e($user['email']) ?></p>
-          <p class="user__role"><?= e($roleLabel) ?></p>
+          <p class="user__name"><?= echapperHtml($fullName) ?></p>
+          <p class="user__mail" title="<?= echapperHtml($user['email']) ?>"><?= echapperHtml($user['email']) ?></p>
+          <p class="user__role"><?= echapperHtml($roleLabel) ?></p>
         </div>
       </div>
       <form class="logout-form" method="post" action="/deconnexion">
-        <?= csrf_field() ?>
+        <?= champCsrf() ?>
         <button class="logout" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-logout"/></svg>Se déconnecter</button>
       </form>
     </div>
@@ -94,7 +94,7 @@
         <svg class="ic" aria-hidden="true"><use href="#i-bell"/></svg>
         <span class="badge-n" id="bellCount" hidden></span>
       </button>
-      <span class="avatar" title="<?= e($fullName) ?>" aria-hidden="true"><?= e(initials($fullName)) ?></span>
+      <span class="avatar" title="<?= echapperHtml($fullName) ?>" aria-hidden="true"><?= echapperHtml(initiales($fullName)) ?></span>
     </header>
 
     <main class="main" id="contenu" tabindex="-1"><?= $content ?></main>
@@ -111,10 +111,10 @@
   <ul id="paletteList" role="listbox" aria-label="Résultats"></ul>
 </dialog>
 
-<?php if (isset($payload)): ?>
+<?php if (isset($donneesTableauBord)): ?>
 <!-- Données du tableau de bord : uniquement celles du rôle du membre connecté -->
-<script id="dashboard-data" type="application/json"><?= json_for_html($payload) ?></script>
+<script id="dashboard-data" type="application/json"><?= jsonPourHtml($donneesTableauBord) ?></script>
 <?php endif; ?>
-<script src="<?= e(asset('js/dashboard.js')) ?>" defer></script>
+<script src="<?= echapperHtml(urlRessource('js/dashboard.js')) ?>" defer></script>
 </body>
 </html>

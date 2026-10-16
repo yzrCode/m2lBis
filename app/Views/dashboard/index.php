@@ -1,15 +1,15 @@
 <header class="page-head">
   <div>
     <div class="page-head__row">
-      <h1><?= e($hello) ?>, <?= e($user['prenom']) ?></h1>
-      <span class="role-chip"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-shield"/></svg><span><span class="sr-only">Rôle actif : </span><?= e($roleLabel) ?></span></span>
+      <h1><?= echapperHtml($salutation) ?>, <?= echapperHtml($user['prenom']) ?></h1>
+      <span class="role-chip"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-shield"/></svg><span><span class="sr-only">Rôle actif : </span><?= echapperHtml($roleLabel) ?></span></span>
     </div>
-    <p class="page-head__lead"><?= e($lead) ?></p>
+    <p class="page-head__lead"><?= echapperHtml($lead) ?></p>
   </div>
   <div class="page-head__side">
-    <p class="page-head__date"><strong><?= e(\App\Core\Fr::long(new DateTimeImmutable('now'))) ?></strong>, <?= e($season['label']) ?></p>
-    <a class="btn btn--primary" href="<?= e($primaryAction['href']) ?>" data-primary-action>
-      <svg class="ic" aria-hidden="true"><use href="#i-<?= e($primaryAction['icon']) ?>"/></svg><?= e($primaryAction['label']) ?>
+    <p class="page-head__date"><strong><?= echapperHtml(\App\Core\DatesFrancaises::dateLongue(new DateTimeImmutable('now'))) ?></strong>, <?= echapperHtml($season['label']) ?></p>
+    <a class="btn btn--primary" href="<?= echapperHtml($primaryAction['href']) ?>" data-primary-action>
+      <svg class="ic" aria-hidden="true"><use href="#i-<?= echapperHtml($primaryAction['icon']) ?>"/></svg><?= echapperHtml($primaryAction['label']) ?>
     </a>
   </div>
 </header>
