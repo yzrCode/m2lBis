@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-/** Associe chaque adresse web à la méthode qui doit la traiter. */
+//Associe chaque adresse web à la méthode qui doit la traiter.
 final class Routeur
 {
-    /** @var array<int, array{0:string,1:string,2:callable}> */
+    //@var array<int, array{0:string,1:string,2:callable}>
     private array $routes = [];
 
     public function ajouterRouteGet(string $motif, callable $gestionnaire): void
@@ -21,7 +21,7 @@ final class Routeur
 
     private function ajouterRoute(string $methode, string $motif, callable $gestionnaire): void
     {
-        // Les accolades d'une adresse, comme {id}, deviennent des paramètres transmis au contrôleur.
+        //Les accolades d'une adresse, comme {id}, deviennent des paramètres transmis au contrôleur.
         $expressionReguliere = '#^' . preg_replace('#\{(\w+)\}#', '(?P<$1>[^/]+)', $motif) . '$#';
         $this->routes[] = [$methode, $expressionReguliere, $gestionnaire];
     }

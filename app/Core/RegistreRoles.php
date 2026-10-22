@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-/** Registre des rôles (RBAC) : libellé, menu et action principale de chaque rôle. */
+//Registre des rôles (RBAC) : libellé, menu et action principale de chaque rôle.
 final class RegistreRoles
 {
     private static ?array $tousRoles = null;
@@ -23,7 +23,7 @@ final class RegistreRoles
         return self::tous()[$role] ?? throw new \InvalidArgumentException('Rôle inconnu');
     }
 
-    /** L'élément de menu correspondant à un chemin pour ce rôle, s'il existe. */
+    //L'élément de menu correspondant à un chemin pour ce rôle, s'il existe.
     public static function elementMenu(string $role, string $chemin): ?array
     {
         foreach (self::obtenir($role)['menu'] as $item) {
@@ -34,7 +34,7 @@ final class RegistreRoles
         return null;
     }
 
-    /** Ce chemin appartient-il au menu d'un autre rôle ? (403 plutôt que 404) */
+    //Ce chemin appartient-il au menu d'un autre rôle ? (403 plutôt que 404)
     public static function cheminConnuDansAutreRole(string $chemin): bool
     {
         foreach (self::tous() as $configuration) {

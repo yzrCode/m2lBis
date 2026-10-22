@@ -3,6 +3,9 @@
     <div class="page-head__row"><h1>Dossiers</h1></div>
     <p class="page-head__lead">Consultez les dossiers des licenciés et l’état de leurs pièces.</p>
   </div>
+  <div class="page-head__side">
+    <a class="btn btn--primary" href="/dossiers/nouveau">Nouveau dossier</a>
+  </div>
 </header>
 
 <section class="card" aria-labelledby="dossiers-title">
@@ -28,7 +31,7 @@
           <tbody>
             <?php foreach ($dossiers as $dossier): ?>
               <tr>
-                <?php // Les valeurs issues de la base sont échappées avant l'affichage HTML. ?>
+                <?php //Les valeurs issues de la base sont échappées avant l'affichage HTML. ?>
                 <td data-label="Licencié">
                   <div class="person">
                     <span><?= echapperHtml($dossier['name']) ?><small><?= echapperHtml($dossier['email']) ?></small></span>
@@ -43,7 +46,7 @@
                   </span>
                 </td>
                 <td data-label="Action">
-                  <?php // La relance n'est proposée que si des pièces manquent et que le dossier est en attente. ?>
+                  <?php //La relance n'est proposée que si des pièces manquent et que le dossier est en attente. ?>
                   <?php if ($dossier['canRelance']): ?>
                     <form method="post" action="/dossiers/<?= (int) $dossier['id'] ?>/relancer">
                       <?= champCsrf() ?>

@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 use App\Core\ProtectionCsrf;
 
-/** Échappement HTML systématique dans les vues. */
+//Échappement HTML systématique dans les vues.
 function echapperHtml(mixed $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-/** Ajoute le numéro de version d'un fichier pour renouveler le cache du navigateur après modification. */
+//Ajoute le numéro de version d'un fichier pour renouveler le cache du navigateur après modification.
 function urlRessource(string $chemin): string
 {
     $fichier = BASE_PATH . '/public/assets/' . $chemin;
@@ -27,7 +27,7 @@ function rediriger(string $destination, int $codeHttp = 302): never
     exit;
 }
 
-/** Initiales d'un nom complet (2 lettres max). */
+//Initiales d'un nom complet (2 lettres max).
 function initiales(string $nomComplet): string
 {
     $initiales = '';
@@ -39,7 +39,7 @@ function initiales(string $nomComplet): string
     return $initiales;
 }
 
-/** JSON sûr pour être injecté dans une balise <script type="application/json">. */
+//JSON sûr pour être injecté dans une balise <script type="application/json">.
 function jsonPourHtml(array $donnees): string
 {
     return json_encode(

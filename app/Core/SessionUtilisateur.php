@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Core;
 
-/** Gère la session et les messages temporaires transmis à la page suivante. */
+//Gère la session et les messages temporaires transmis à la page suivante.
 final class SessionUtilisateur
 {
     public static function demarrer(): void
@@ -28,16 +28,16 @@ final class SessionUtilisateur
         $_SESSION['flash'] = ['type' => $type, 'message' => $message];
     }
 
-    /** Lit puis efface le message temporaire pour qu'il ne s'affiche qu'une fois. */
+    //Lit puis efface le message temporaire pour qu'il ne s'affiche qu'une fois.
     public static function recupererMessageFlash(): ?array
     {
-        // Un message flash est consommé ici pour ne s'afficher qu'une seule fois.
+        //Un message flash est consommé ici pour ne s'afficher qu'une seule fois.
         $messageFlash = $_SESSION['flash'] ?? null;
         unset($_SESSION['flash']);
         return $messageFlash;
     }
 
-    /** Conserve la saisie d'un formulaire refusé pour le réafficher. */
+    //Conserve la saisie d'un formulaire refusé pour le réafficher.
     public static function conserverAncienneSaisie(array $saisie): void
     {
         $_SESSION['old'] = $saisie;

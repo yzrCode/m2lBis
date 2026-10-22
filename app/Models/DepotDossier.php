@@ -6,13 +6,37 @@ namespace App\Models;
 use App\Config\BaseDeDonnees;
 use App\Core\DatesFrancaises;
 use DateTimeImmutable;
+use PDO;
 use RuntimeException;
 
 final class DepotDossier
 {
+    //Ajoute un nouveau dossier de suivi sans créer de compte de connexion.
+    public static function creer(array $dossier): void
+    {
+        //Les pièces reçues, le statut et la date de création utilisent les valeurs par défaut de la base.
+        $requete = (new BaseDeDonnees())->obtenirConnexion()->prepare(
+            'INSERT INTO dossiers
+                (prenom_dossiers, nom_dossiers, email_dossiers, categorie_dossiers, date_naissance_dossiers)
+             VALUES
+                (:prenom, :nom, :email, :categorie, :date_naissance)'
+        );
+
+        $requete->bindValue(':prenom', $dossier['prenom'], PDO::PARAM_STR);
+        $requete->bindValue(':nom', $dossier['nom'], PDO::PARAM_STR);
+        $requete->bindValue(':email', $dossier['email'], PDO::PARAM_STR);
+        $requete->bindValue(':categorie', $dossier['categorie'], PDO::PARAM_STR);
+        $requete->bindValue(
+            ':date_naissance',
+            $dossier['date_naissance'],
+            $dossier['date_naissance'] === null ? PDO::PARAM_NULL : PDO::PARAM_STR
+        );
+        $requete->execute();
+    }
+
     public static function lister(): array
     {
-        // Les alias gardent des clés courtes côté PHP malgré les noms de colonnes de la table.
+        //Les alias gardent des clés courtes côté PHP malgré les noms de colonnes de la table.
         $requete = (new BaseDeDonnees())->obtenirConnexion()->query(
             'SELECT id_dossiers AS id, prenom_dossiers AS prenom, nom_dossiers AS nom,
                     email_dossiers AS email, categorie_dossiers AS categorie, cree_le,
@@ -27,7 +51,7 @@ final class DepotDossier
             $statut = (string) $dossier['statut'];
             $piecesManquantes = $piecesRecues < $piecesTotal;
 
-            // Le statut validé prime ; sinon on distingue le dossier complet de celui qui manque des pièces.
+            //Le statut validé prime ; sinon on distingue le dossier complet de celui qui manque des pièces.
             if ($statut === 'valide') {
                 $etat = ['tone' => 'ok', 'label' => 'Validé'];
             } elseif ($statut === 'en_attente' && $piecesManquantes) {
@@ -46,16 +70,16 @@ final class DepotDossier
                 'date' => DatesFrancaises::dateCourte(new DateTimeImmutable($dossier['cree_le'])),
                 'pieces' => $piecesRecues . ' sur ' . $piecesTotal,
                 'status' => $etat,
-                // Seuls les dossiers en attente et incomplets peuvent être relancés.
+                //Seuls les dossiers en attente et incomplets peuvent être relancés.
                 'canRelance' => $statut === 'en_attente' && $piecesManquantes,
             ];
         }, $requete->fetchAll());
     }
 
-    // Enregistre une relance pour un dossier incomplet sans envoyer de courriel.
+    //Enregistre une relance pour un dossier incomplet sans envoyer de courriel.
     public static function enregistrerRelance(int $identifiant, array $membre): bool
     {
-        // Vérifie en base que le dossier existe encore et nécessite toujours une relance.
+        //Vérifie en base que le dossier existe encore et nécessite toujours une relance.
         $requete = (new BaseDeDonnees())->obtenirConnexion()->prepare(
             'SELECT 1 FROM dossiers
              WHERE id_dossiers = :id AND statut_dossiers = :statut
@@ -67,7 +91,7 @@ final class DepotDossier
             return false;
         }
 
-        // On journalise la demande ; aucun courriel n'est envoyé sans configuration de messagerie.
+        //On journalise la demande ; aucun courriel n'est envoyé sans configuration de messagerie.
         $entree = json_encode([
             'at' => date('c'),
             'member' => $membre['id'],

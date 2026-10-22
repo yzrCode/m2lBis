@@ -1,12 +1,10 @@
 <?php
 declare(strict_types=1);
 
-/**
- * Registre RBAC : un rôle = un libellé, une action principale et un menu.
- * Un membre ne voit et n'atteint QUE les entrées de son propre rôle
- * (contrôle serveur dans ControleurModule et ControleurActions).
- * `section` inscrit un intertitre dans le menu au-dessus de l'élément.
- */
+//Registre RBAC : un rôle = un libellé, une action principale et un menu.
+//Un membre ne voit et n'atteint QUE les entrées de son propre rôle
+//(contrôle serveur dans ControleurModule et ControleurActions).
+//`section` inscrit un intertitre dans le menu au-dessus de l'élément.
 $dash = ['section' => 'Principal', 'label' => 'Tableau de bord', 'icon' => 'dashboard', 'href' => '/tableau-de-bord'];
 
 return [
@@ -37,14 +35,15 @@ return [
 
     'secretaire' => [
         'label' => 'Secrétaire',
-        'primaryAction' => ['label' => 'Nouveau dossier', 'icon' => 'plus', 'href' => '/dossiers/nouveau'],
+        'primaryAction' => ['label' => 'Ajouter un licencié', 'icon' => 'plus', 'href' => '/licencies/nouveau'],
         'menu' => [
             $dash,
             ['section' => 'Secrétariat', 'label' => 'Licenciés', 'icon' => 'users', 'href' => '/licencies'],
             ['label' => 'Dossiers', 'icon' => 'folder', 'href' => '/dossiers'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Certificats', 'icon' => 'shield-check', 'href' => '/certificats'],
             ['label' => 'Cotisations', 'icon' => 'euro', 'href' => '/cotisations'],
-            ['label' => 'Import CSV', 'icon' => 'upload', 'href' => '/licencies/import'],
+            ['label' => 'Importer des licenciés', 'icon' => 'upload', 'href' => '/tableau-de-bord#panel-import'],
         ],
     ],
 
@@ -54,9 +53,9 @@ return [
         'menu' => [
             $dash,
             ['section' => 'Pilotage', 'label' => 'Licenciés', 'icon' => 'users', 'href' => '/licencies'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Équipes', 'icon' => 'trophy', 'href' => '/equipes'],
             ['label' => 'Finances', 'icon' => 'euro', 'href' => '/finances'],
-            ['label' => 'Statistiques', 'icon' => 'chart', 'href' => '/statistiques'],
             ['section' => 'Administration', 'label' => 'Utilisateurs et rôles', 'icon' => 'shield', 'href' => '/utilisateurs'],
         ],
     ],
@@ -67,6 +66,8 @@ return [
         'menu' => [
             $dash,
             ['section' => 'Trésorerie', 'label' => 'Cotisations', 'icon' => 'euro', 'href' => '/cotisations'],
+            ['label' => 'Finances', 'icon' => 'chart', 'href' => '/finances'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Opérations', 'icon' => 'clipboard', 'href' => '/operations'],
             ['label' => 'Budget', 'icon' => 'chart', 'href' => '/budget'],
             ['label' => 'Notes de frais', 'icon' => 'file', 'href' => '/notes-de-frais'],
@@ -81,6 +82,7 @@ return [
             $dash,
             ['section' => 'Ma mission', 'label' => 'Mes missions', 'icon' => 'clipboard', 'href' => '/missions'],
             ['label' => 'Mes heures', 'icon' => 'clock', 'href' => '/heures'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Formations', 'icon' => 'graduation', 'href' => '/formations'],
             ['label' => 'Mon dossier', 'icon' => 'folder', 'href' => '/dossier-mission'],
         ],
@@ -93,6 +95,7 @@ return [
             $dash,
             ['section' => 'Arbitrage', 'label' => 'Désignations', 'icon' => 'flag', 'href' => '/designations'],
             ['label' => 'Disponibilités', 'icon' => 'calendar', 'href' => '/disponibilites'],
+            ['label' => 'Calendrier du club', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Rapports de match', 'icon' => 'file', 'href' => '/rapports-match'],
             ['label' => 'Licence et formation', 'icon' => 'shield-check', 'href' => '/licence-arbitre'],
         ],
@@ -104,6 +107,7 @@ return [
         'menu' => [
             $dash,
             ['section' => 'Événements', 'label' => 'Événements', 'icon' => 'star', 'href' => '/evenements'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Bénévoles', 'icon' => 'users', 'href' => '/benevoles'],
             ['label' => 'Partenaires', 'icon' => 'trophy', 'href' => '/partenaires'],
             ['label' => 'Budget événements', 'icon' => 'euro', 'href' => '/budget-evenements'],
@@ -116,6 +120,7 @@ return [
         'menu' => [
             $dash,
             ['section' => 'Achats', 'label' => 'Commandes', 'icon' => 'cart', 'href' => '/commandes'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Fournisseurs', 'icon' => 'users', 'href' => '/fournisseurs'],
             ['label' => 'Stocks', 'icon' => 'package', 'href' => '/stocks'],
             ['label' => 'Demandes internes', 'icon' => 'send', 'href' => '/demandes'],
@@ -128,6 +133,7 @@ return [
         'menu' => [
             $dash,
             ['section' => 'Tournois', 'label' => 'Tournois', 'icon' => 'trophy', 'href' => '/tournois'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Équipes inscrites', 'icon' => 'users', 'href' => '/equipes-inscrites'],
             ['label' => 'Terrains', 'icon' => 'pin', 'href' => '/terrains'],
             ['label' => 'Planning', 'icon' => 'calendar', 'href' => '/planning-tournoi'],
@@ -140,6 +146,7 @@ return [
         'menu' => [
             $dash,
             ['section' => 'École de foot', 'label' => 'Groupes', 'icon' => 'users', 'href' => '/groupes'],
+            ['label' => 'Calendrier', 'icon' => 'calendar', 'href' => '/calendrier'],
             ['label' => 'Plateaux', 'icon' => 'trophy', 'href' => '/plateaux'],
             ['label' => 'Animateurs', 'icon' => 'graduation', 'href' => '/animateurs'],
             ['label' => 'Présences', 'icon' => 'clipboard', 'href' => '/presences-ecole'],

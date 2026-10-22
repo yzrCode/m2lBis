@@ -8,10 +8,8 @@ use App\Core\RegistreRoles;
 use App\Core\PreparationEspaceMembre;
 use App\Core\Vue;
 
-/**
- * Sections de l'espace membre (menu). Contrôle d'accès RBAC côté serveur :
- * une section absente du menu du rôle renvoie 403 (existe ailleurs) ou 404.
- */
+//Sections de l'espace membre (menu). Contrôle d'accès RBAC côté serveur :
+//une section absente du menu du rôle renvoie 403 (existe ailleurs) ou 404.
 final class ControleurModule
 {
     public static function afficherSection(string $chemin): void

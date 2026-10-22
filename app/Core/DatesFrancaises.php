@@ -5,7 +5,7 @@ namespace App\Core;
 
 use DateTimeInterface;
 
-/** Dates en français sans dépendre de l'extension intl. */
+//Dates en français sans dépendre de l'extension intl.
 final class DatesFrancaises
 {
     private const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
@@ -23,19 +23,19 @@ final class DatesFrancaises
         return $short ? self::MONTHS_SHORT[$i] : self::MONTHS[$i];
     }
 
-    /** « Dimanche 4 octobre » */
+    //« Dimanche 4 octobre »
     public static function dateLongue(DateTimeInterface $d): string
     {
         return ucfirst(self::jourSemaine($d)) . ' ' . $d->format('j') . ' ' . self::mois($d);
     }
 
-    /** « 4 oct. » */
+    //« 4 oct. »
     public static function dateCourte(DateTimeInterface $d): string
     {
         return $d->format('j') . ' ' . self::mois($d, true);
     }
 
-    /** « 15h00 » */
+    //« 15h00 »
     public static function heure(DateTimeInterface $d): string
     {
         return $d->format('G\hi');

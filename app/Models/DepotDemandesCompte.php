@@ -5,13 +5,13 @@ namespace App\Models;
 
 use App\Config\BaseDeDonnees;
 
-/** Enregistre les demandes et transforme une demande acceptée en compte membre. */
+//Enregistre les demandes et transforme une demande acceptée en compte membre.
 final class DepotDemandesCompte
 {
     public static function envoyerDemande(array $demande): string
     {
         $connexion = (new BaseDeDonnees())->obtenirConnexion();
-        // La vérification et l'ajout sont groupés pour éviter une demande partiellement enregistrée.
+        //La vérification et l'ajout sont groupés pour éviter une demande partiellement enregistrée.
         $connexion->beginTransaction();
 
         $requete = $connexion->prepare('SELECT 1 FROM utilisateurs WHERE email = :email LIMIT 1');
@@ -89,7 +89,7 @@ final class DepotDemandesCompte
                  WHERE id = :id"
             );
             $requete->execute(['president_id' => $identifiantPresident, 'id' => $identifiant]);
-            // Le mot de passe n'est plus nécessaire dans la demande une fois la décision prise.
+            //Le mot de passe n'est plus nécessaire dans la demande une fois la décision prise.
             $connexion->commit();
 
             return true;

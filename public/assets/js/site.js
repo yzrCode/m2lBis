@@ -1,4 +1,4 @@
-/* M2L · Site public : onglets accessibles, menu mobile, thème, compte à rebours, repère de section */
+//M2L · Site public : onglets accessibles, menu mobile, thème, compte à rebours, repère de section
 (() => {
   'use strict';
   const $  = (s, r = document) => r.querySelector(s);
@@ -6,7 +6,7 @@
   const root = document.documentElement;
   const ic = n => `<svg class="ic" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 
-  /* Onglets (clic, flèches, Début, Fin) */
+  //Onglets (clic, flèches, Début, Fin)
   $$('[data-tabs]').forEach(list => {
     const tabs = $$('[role="tab"]', list);
     const select = (tab, focus = false) => {
@@ -29,14 +29,14 @@
     });
   });
 
-  /* Menu mobile */
+  //Menu mobile
   const burger = $('[data-site-burger]'), nav = $('#siteNav');
   const setNav = open => { nav.classList.toggle('is-open', open); burger.setAttribute('aria-expanded', String(open)); };
   burger.addEventListener('click', () => setNav(!nav.classList.contains('is-open')));
   nav.addEventListener('click', e => { if (e.target.closest('a')) setNav(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
 
-  /* Thème */
+  //Thème
   const toggle = $('[data-theme-toggle]');
   const paint = () => {
     const dark = root.dataset.theme === 'dark';
@@ -51,7 +51,7 @@
   });
   paint();
 
-  /* Compte à rebours : heure du serveur, pas celle du visiteur */
+  //Compte à rebours : heure du serveur, pas celle du visiteur
   const cd = $('[data-countdown]');
   if (cd) {
     const now0 = Date.parse(cd.dataset.now), kick = Date.parse(cd.dataset.kickoff), t0 = performance.now();
@@ -65,7 +65,7 @@
     setInterval(tick, 1000);
   }
 
-  /* Repère de la section visible dans le menu */
+  //Repère de la section visible dans le menu
   const links = $$('.site-nav a');
   const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
   const io = new IntersectionObserver(entries => {

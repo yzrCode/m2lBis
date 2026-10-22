@@ -11,10 +11,10 @@ use App\Core\PreparationEspaceMembre;
 use App\Core\Vue;
 use App\Models\DepotDemandesCompte;
 
-/** Reçoit les demandes de compte et réserve leur validation au président. */
+//Reçoit les demandes de compte et réserve leur validation au président.
 final class ControleurDemandesCompte
 {
-    // Un visiteur ne peut pas demander les rôles de président ou de licencié.
+    //Un visiteur ne peut pas demander les rôles de président ou de licencié.
     private const ROLES_DEMANDABLES = [
         'educateur',
         'secretaire',
@@ -69,7 +69,7 @@ final class ControleurDemandesCompte
         if (!in_array($saisie['role'], self::ROLES_DEMANDABLES, true)) {
             self::echouer($saisie, 'Choisissez un rôle dans la liste.');
         }
-        // Le mot de passe est validé ici puis haché avant d'être confié au dépôt SQL.
+        //Le mot de passe est validé ici puis haché avant d'être confié au dépôt SQL.
         if (strlen($motDePasse) < 12) {
             self::echouer($saisie, 'Le mot de passe doit contenir au moins 12 caractères.');
         }

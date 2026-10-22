@@ -6,11 +6,9 @@ namespace App\Models;
 use App\Core\DatesFrancaises;
 use DateTimeImmutable;
 
-/**
- * Données publiques du club (site visiteur).
- * Implémentation de départ : database/fixtures/club.json.
- * À remplacer par vos tables (matchs, classements, actualités, événements, boutique).
- */
+//Données publiques du club (site visiteur).
+//Implémentation de départ : database/fixtures/club.json.
+//À remplacer par vos tables (matchs, classements, actualités et événements).
 final class DepotClub
 {
     private static function donneesBrutes(): array
@@ -34,7 +32,7 @@ final class DepotClub
         return null;
     }
 
-    /** @return array<int,array{0:string,1:string,2:string,3:string,4:string}> */
+    //@return array<int,array{0:string,1:string,2:string,3:string,4:string}>
     public static function calendrierBrut(string $identifiantEquipe): array
     {
         return self::donneesBrutes()['calendar'][$identifiantEquipe] ?? [];
@@ -49,7 +47,7 @@ final class DepotClub
             $nomEquipe[$t['id']] = $t['name'];
         }
 
-        // Résultats, du plus récent au plus ancien
+        //Résultats, du plus récent au plus ancien
         $resultats = [];
         foreach ($donneesBrutes['results'] as [$equipe, $dateTexte, $domicile, $exterieur, $scoreDomicile, $scoreExterieur, $competition]) {
             $dateMatch = new DateTimeImmutable($dateTexte);
@@ -65,7 +63,7 @@ final class DepotClub
         }
         usort($resultats, static fn ($a, $b) => $b['ts'] <=> $a['ts']);
 
-        // Classements : J, points et différence calculés, tri officiel
+        //Classements : J, points et différence calculés, tri officiel
         $classements = [];
         foreach ($donneesBrutes['standings'] as $tableClassement) {
             $lignes = [];
@@ -81,7 +79,7 @@ final class DepotClub
             $classements[] = ['id' => $tableClassement['id'], 'label' => $tableClassement['label'], 'competition' => $tableClassement['competition'], 'rows' => $lignes];
         }
 
-        // Calendriers par équipe
+        //Calendriers par équipe
         $calendriers = [];
         foreach ($donneesBrutes['calendar'] as $identifiantEquipe => $correspondances) {
             $equipe = self::equipe($identifiantEquipe);
@@ -99,7 +97,7 @@ final class DepotClub
             }, $correspondances);
         }
 
-        // Actualités et événements
+        //Actualités et événements
         $actualites = array_map(static function (array $actualite) {
             $dateActualite = new DateTimeImmutable($actualite['date']);
             return $actualite + ['dateLabel' => $dateActualite->format('j') . ' ' . DatesFrancaises::mois($dateActualite) . ' ' . $dateActualite->format('Y'), 'iso' => $actualite['date']];
@@ -111,7 +109,7 @@ final class DepotClub
             return $evenement + ['day' => $dateDebut->format('j'), 'month' => DatesFrancaises::mois($dateDebut, true), 'range' => $plageDates];
         }, $donneesBrutes['events']);
 
-        // Prochain match : compte à rebours calculé sur l'heure du serveur
+        //Prochain match : compte à rebours calculé sur l'heure du serveur
         $suite = $donneesBrutes['next'];
         $coupEnvoi = new DateTimeImmutable($suite['kickoff']);
         $suite += ['label' => DatesFrancaises::dateLongue($coupEnvoi) . ', ' . DatesFrancaises::heure($coupEnvoi), 'now' => $maintenant->format('c')];
@@ -119,7 +117,7 @@ final class DepotClub
         return [
             'club' => $donneesBrutes['club'], 'season' => $donneesBrutes['season'], 'stats' => $donneesBrutes['stats'], 'teams' => $donneesBrutes['teams'],
             'next' => $suite, 'results' => $resultats, 'standings' => $classements, 'calendars' => $calendriers,
-            'news' => $actualites, 'events' => $evenements, 'registration' => $donneesBrutes['registration'], 'shop' => $donneesBrutes['shop'],
+            'news' => $actualites, 'events' => $evenements, 'registration' => $donneesBrutes['registration'],
         ];
     }
 }

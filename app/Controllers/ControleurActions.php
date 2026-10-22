@@ -8,14 +8,12 @@ use App\Core\ProtectionCsrf;
 use App\Models\DepotDossier;
 use App\Models\DepotTableauBord;
 
-/**
- * Point d'entrée des actions du tableau de bord (Valider, Relancer, Confirmer…).
- *
- * Sécurité : le navigateur n'envoie qu'un CHEMIN (ex. « panels.1.rows.0.actions.0 »). Le serveur
- * reconstruit le tableau de bord du rôle connecté et vérifie que ce chemin désigne bien une action
- * de CE rôle. Un membre ne peut donc pas déclencher l'action d'un autre rôle.
- * Les relances de dossiers sont journalisées ; les autres actions restent à relier au métier.
- */
+//Point d'entrée des actions du tableau de bord (Valider, Relancer, Confirmer…).
+//
+//Sécurité : le navigateur n'envoie qu'un CHEMIN (ex. « panels.1.rows.0.actions.0 »). Le serveur
+//reconstruit le tableau de bord du rôle connecté et vérifie que ce chemin désigne bien une action
+//de CE rôle. Un membre ne peut donc pas déclencher l'action d'un autre rôle.
+//Les relances de dossiers sont journalisées ; les autres actions restent à relier au métier.
 final class ControleurActions
 {
     public static function traiter(): void
@@ -42,7 +40,7 @@ final class ControleurActions
         }
 
         if (($noeud['type'] ?? '') === 'relance_dossier') {
-            // Réserve cette action au secrétariat et vérifie le dossier avant de journaliser la relance.
+            //Réserve cette action au secrétariat et vérifie le dossier avant de journaliser la relance.
             if ($membre['role'] !== 'secretaire') {
                 self::repondre(403, 'Action non autorisée pour votre rôle');
             }
@@ -52,7 +50,7 @@ final class ControleurActions
             self::repondre(200, 'Relance enregistrée. Aucun e-mail n’a été envoyé.');
         }
 
-        // À relier au métier : valider un dossier ou enregistrer un pointage.
+        //À relier au métier : valider un dossier ou enregistrer un pointage.
         $entree = ['at' => date('c'), 'member' => $membre['id'], 'role' => $membre['role'], 'path' => $chemin,
                   'label' => $noeud['label'] ?? ($noeud['title'] ?? ''), 'data' => $estPointage ? ($corpsRequete['data'] ?? null) : null];
         @file_put_contents(BASE_PATH . '/storage/actions.jsonl', json_encode($entree, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);

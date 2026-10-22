@@ -8,7 +8,7 @@ use App\Core\ProtectionCsrf;
 use App\Core\SessionUtilisateur;
 use App\Core\Vue;
 
-/** Affiche le formulaire de connexion et traite sa soumission. */
+//Affiche le formulaire de connexion et traite sa soumission.
 final class ControleurConnexion
 {
     public static function afficherConnexion(): void
@@ -51,7 +51,7 @@ final class ControleurConnexion
         rediriger('/');
     }
 
-    /** Refuse les adresses externes pour éviter de rediriger un membre vers un site malveillant. */
+    //Refuse les adresses externes pour éviter de rediriger un membre vers un site malveillant.
     private static function destinationInterneSure(string $suite): string
     {
         return ($suite !== '' && $suite[0] === '/' && !str_starts_with($suite, '//') && !str_contains($suite, '\\'))

@@ -1,4 +1,4 @@
-/* Thème appliqué avant le premier rendu (fichier externe : compatible CSP sans script inline) */
+//Thème appliqué avant le premier rendu (fichier externe : compatible CSP sans script inline)
 (function () {
   try {
     var t = localStorage.getItem('m2l-theme');

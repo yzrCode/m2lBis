@@ -8,15 +8,15 @@ use App\Core\PreparationEspaceMembre;
 use App\Core\Vue;
 use App\Models\DepotTableauBord;
 
-/** Assemble les données du rôle connecté avant de les transmettre au gabarit du tableau de bord. */
+//Assemble les données du rôle connecté avant de les transmettre au gabarit du tableau de bord.
 final class ControleurTableauBord
 {
     public static function afficher(): void
     {
         $membre = Authentification::exigerConnexion();
-        $donnees = DepotTableauBord::pourRole($membre['role']);
+        $donnees = DepotTableauBord::pourRole($membre['role'], (int) $membre['id']);
 
-        // Le JSON embarqué ne contient QUE les données du rôle du membre connecté.
+        //Les données du rôle connecté sont transmises à la vue et au rendu JavaScript.
         $donneesTableauBord = array_diff_key($donnees, ['lead' => 1, 'counts' => 1]);
         $heure = (int) date('G');
 

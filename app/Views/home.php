@@ -1,13 +1,10 @@
 <?php
-/**
- * Accueil public. Variables : $club $season $stats $teams $next $results $standings $calendars
- * $news $events $registration $shop $flash $old $member
- */
+//Accueil public. Variables : $club $season $stats $teams $next $results $standings $calendars
+//$news $events $registration $flash $old $member
 $libellesResultats = ['V' => ['Victoire', 'ok'], 'N' => ['Match nul', 'neutral'], 'D' => ['Défaite', 'danger']];
 $libellesTerrains = ['H' => ['Domicile', 'ok'], 'A' => ['Extérieur', 'neutral'], 'N' => ['Terrain neutre', 'warn']];
-$illustrationsProduits = ['jersey' => 'p-jersey', 'hoodie' => 'p-hoodie', 'shorts' => 'p-shorts', 'scarf' => 'p-scarf', 'bag' => 'p-bag'];
 
-/** Liste d'onglets accessible (le comportement est dans site.js). */
+//Liste d'onglets accessible (le comportement est dans site.js).
 $afficherOnglets = static function (string $identifiant, string $libelle, array $elements): void { ?>
   <div class="tabs" role="tablist" aria-label="<?= echapperHtml($libelle) ?>" data-tabs="<?= echapperHtml($identifiant) ?>">
     <?php foreach ($elements as $indice => [$cle, $texte]): ?>
@@ -254,28 +251,5 @@ $abreviationAdversaire = mb_strtoupper(mb_substr((string) preg_replace('/[^\p{L}
         <button class="btn btn--primary btn--block" type="submit">Envoyer ma demande</button>
       </form>
     </div>
-  </div>
-</section>
-
-<!-- ============================ Boutique ============================ -->
-<section class="section" id="boutique" aria-labelledby="t-boutique">
-  <div class="wrap">
-    <header class="section__head"><div><h2 id="t-boutique">Boutique du club</h2><p><?= echapperHtml($shop['pickup']) ?>. Réservez par e-mail, réglez au retrait.</p></div></header>
-    <ul class="products">
-      <?php foreach ($shop['products'] as $p): ?>
-        <li class="prod">
-          <div class="prod__art prod__art--<?= echapperHtml($p['tone']) ?>">
-            <?php if ($p['badge']): ?><span class="prod__badge"><?= echapperHtml($p['badge']) ?></span><?php endif; ?>
-            <svg viewBox="0 0 120 120" aria-hidden="true"><use href="#<?= echapperHtml($illustrationsProduits[$p['kind']]) ?>"/></svg>
-          </div>
-          <div class="prod__body">
-            <h3><?= echapperHtml($p['name']) ?></h3>
-            <p class="muted"><?= echapperHtml($p['sizes']) ?></p>
-            <p class="prod__foot"><strong><?= echapperHtml(formaterMontant($p['price'])) ?></strong>
-              <a class="btn btn--ghost btn--sm" href="mailto:<?= echapperHtml($club['shopEmail']) ?>?subject=<?= echapperHtml(rawurlencode('Réservation : ' . $p['name'])) ?>"><svg class="ic ic--sm" aria-hidden="true"><use href="#i-mail"/></svg>Réserver</a></p>
-          </div>
-        </li>
-      <?php endforeach; ?>
-    </ul>
   </div>
 </section>

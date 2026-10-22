@@ -5,7 +5,7 @@ namespace App\Config;
 
 use PDO;
 
-/** Ouvre une connexion PDO réutilisable vers la base MySQL du club. */
+//Ouvre une connexion PDO réutilisable vers la base MySQL du club.
 final class BaseDeDonnees
 {
     private string $hote = 'localhost';
@@ -13,7 +13,7 @@ final class BaseDeDonnees
     private string $nomUtilisateur = 'root';
     private string $motDePasse = '';
 
-    /** Les requêtes préparées et les erreurs PDO explicites aident à éviter les erreurs silencieuses. */
+    //Les requêtes préparées et les erreurs PDO explicites aident à éviter les erreurs silencieuses.
     public function obtenirConnexion(): PDO
     {
         $dsn = "mysql:host={$this->hote};dbname={$this->nomBase};charset=utf8mb4";

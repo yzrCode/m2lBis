@@ -1,8 +1,6 @@
-/* M2L · Tableau de bord
- * Le menu, le profil et l'en-tête sont rendus côté serveur (PHP, session du membre).
- * Ce script dessine hero, agenda, indicateurs, panneaux et notifications à partir du JSON
- * #dashboard-data, qui ne contient QUE les données du rôle du membre connecté.
- */
+//M2L · Tableau de bord
+//Le menu, le profil et l'en-tête sont rendus côté serveur (PHP, session du membre).
+//Ce script dessine le tableau de bord à partir des données préparées pour le rôle connecté.
 (() => {
   'use strict';
 
@@ -13,7 +11,7 @@
   const DATA = dataEl ? JSON.parse(dataEl.textContent) : null;
   const TOKEN = $('meta[name="csrf-token"]')?.content || '';
 
-  /* ---------- Utilitaires ---------- */
+  //---------- Utilitaires ----------
   const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const icon = (name, cls = '') => `<svg class="ic ${cls}" aria-hidden="true" focusable="false"><use href="#i-${esc(name)}"/></svg>`;
   const initials = name => String(name).trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
@@ -31,7 +29,7 @@
     return res.json();
   }
 
-  /* ---------- Actions (chaque bouton porte le chemin de l'action dans le payload) ---------- */
+  //---------- Actions (chaque bouton porte le chemin de l'action dans le payload) ----------
   const actionEl = (a, variant, path) => {
     const hero = variant === 'hero';
     const cls = hero
@@ -45,7 +43,7 @@
     `<span class="acts" data-actions>${list.map((a, i) => actionEl(a, variant, `${path}.${i}`)).join('')}</span>`;
   const statusSlot = s => s ? `<span data-status-slot aria-live="polite">${badge(s)}</span>` : '';
 
-  /* ---------- Hero ---------- */
+  //---------- Hero ----------
   const PITCH = `<svg class="hero__pitch" viewBox="0 0 640 420" aria-hidden="true"><use href="#pitch"/></svg>`;
 
   const crest = t => t.us
@@ -98,7 +96,7 @@
       <div class="hero__top"><h2 class="hero__title" id="hero-title">${esc(h.title)}</h2></div>
       <div class="focus">
         <div><p class="focus__value">${esc(h.value)}</p><p class="focus__caption">${esc(h.caption)}</p></div>
-        ${ring(h.ring)}
+        ${h.ring ? ring(h.ring) : ''}
       </div>
       <div class="hero__foot">${actions(h.actions, 'hero', 'hero.actions')}</div>
     </section>`;
@@ -114,7 +112,7 @@
       </ul>
     </section>`;
 
-  /* ---------- Indicateurs ---------- */
+  //---------- Indicateurs ----------
   const spark = vals => {
     const w = 200, h = 46, pad = 4, min = Math.min(...vals), max = Math.max(...vals), span = (max - min) || 1;
     const pts = vals.map((v, i) => [i / (vals.length - 1) * w, h - pad - (v - min) / span * (h - 2 * pad)]);
@@ -135,7 +133,7 @@
       ${k.meter ? `<div class="meter"><div class="bar" role="img" aria-label="${+k.meter.percent} %"><span style="--w:${+k.meter.percent}%"></span></div><p>${esc(k.meter.label)}</p></div>` : ''}
     </li>`;
 
-  /* ---------- Panneaux ---------- */
+  //---------- Panneaux ----------
   const shell = (p, inner) => `
     <section class="card panel ${p.full ? 'panel--full' : ''}" id="panel-${esc(p.id)}" aria-labelledby="t-${esc(p.id)}">
       <div class="card__head"><h2 class="card__title" id="t-${esc(p.id)}">${esc(p.title)}</h2></div>
@@ -216,7 +214,7 @@
       </div>
     </div>`);
 
-  /* Tableau générique : colonnes libres, statut et actions facultatifs */
+  //Tableau générique : colonnes libres, statut et actions facultatifs
   P.table = (p, path) => {
     const hasStatus = p.rows.some(r => r.status);
     const filters = p.filters ? [{ key: 'all', label: 'Tous' }, ...p.filters] : null;
@@ -240,7 +238,7 @@
             </tr>`).join('')}
           </tbody>
         </table>
-        <p class="empty" data-empty hidden>Aucun résultat pour cette recherche.</p>
+        <p class="empty" data-empty hidden>Aucune donnée enregistrée ou aucun résultat ne correspond à votre recherche.</p>
       </div>
     </div>`);
   };
@@ -249,18 +247,19 @@
     <form class="import" method="post" action="${esc(p.formAction)}" enctype="multipart/form-data" data-import>
       <input type="hidden" name="_csrf" value="${esc(TOKEN)}">
       <label class="dropzone" data-dropzone>
-        <input class="sr-only" type="file" name="fichier_csv" accept=".csv,text/csv" data-file>
+        <input class="sr-only" type="file" name="fichier" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" data-file required>
         ${icon('upload', 'ic--lg')}
-        <span class="dropzone__main">Déposez votre fichier CSV ici</span>
+        <span class="dropzone__main">Déposez un fichier CSV ou XLSX ici</span>
         <span class="dropzone__sub">ou <span class="link">parcourez vos fichiers</span></span>
       </label>
       <div class="import__info">
-        <h3 class="import__h">Colonnes attendues</h3>
-        <p class="import__cols">${esc(p.columns)}</p>
-        <p class="muted">${esc(p.last)}</p>
+        <h3 class="import__h">Colonnes requises</h3>
+        <p class="import__cols">nom, prenom, date_naissance, categorie, email_licencie, email_responsable</p>
+        <p class="muted">Chaque licencié recevra un mot de passe provisoire par e-mail et devra le changer à sa première connexion.</p>
         <p class="import__file" data-file-row hidden>${icon('check')}<span><strong data-file-name></strong> <span data-file-meta></span></span></p>
         <div class="import__actions">
-          <a class="btn btn--ghost btn--sm" href="${esc(p.templateHref)}">${icon('download')}Télécharger le modèle</a>
+          <a class="btn btn--ghost btn--sm" href="${esc(p.templateCsvHref)}" download>${icon('download')}Modèle CSV</a>
+          <a class="btn btn--ghost btn--sm" href="${esc(p.templateXlsxHref)}" download>${icon('download')}Modèle Excel</a>
           <button class="btn btn--primary btn--sm" type="submit" disabled data-import-submit>Importer le fichier</button>
         </div>
       </div>
@@ -346,7 +345,7 @@
     </ul>`);
   P.tasks = P.decisions;
 
-  /* ---------- Notifications ---------- */
+  //---------- Notifications ----------
   const toneIcon = { ok: 'check', warn: 'clock', danger: 'alert', neutral: 'info' };
   const renderAlerts = list => `
     <div class="card__head"><h2 class="card__title" id="alerts-title">Notifications</h2><span class="badge" id="unreadCount"></span></div>
@@ -358,10 +357,10 @@
           <div>
             <p class="alert__title">${n.unread ? '<span class="sr-only">Non lue : </span>' : ''}${esc(n.title)}</p>
             <p class="alert__text">${esc(n.text)}</p>
-            <p class="alert__foot"><span>${esc(n.time)}</span>${n.unread ? '<button type="button" class="link-btn" data-read>Marquer comme lu</button>' : ''}</p>
+            <p class="alert__foot"><span>${esc(n.time)}</span>${n.unread ? `<button type="button" class="link-btn" data-read="${esc(n.key)}">Marquer comme lu</button>` : ''}</p>
           </div>
         </li>`).join('')}</ul>`
-        : `<p class="empty">Rien de nouveau. Les changements de convocation et de dossier apparaîtront ici.</p>`}
+        : `<p class="empty">Aucune notification pour le moment. Les nouvelles informations enregistrées apparaîtront ici.</p>`}
     </div>`;
 
   function updateUnread() {
@@ -375,6 +374,34 @@
     if (all) all.disabled = !n;
     const bell = $('#bellCount');
     if (bell) { bell.hidden = !n; bell.textContent = n; }
+  }
+
+  async function markNotificationRead(button) {
+    button.disabled = true;
+    try {
+      await post('/api/notifications/lire', { key: button.dataset.read });
+      button.closest('[data-alert]')?.classList.remove('is-unread');
+      button.remove();
+      updateUnread();
+    } catch (_) {
+      button.disabled = false;
+      toast("La notification n'a pas pu être enregistrée. Réessayez.", 'danger');
+    }
+  }
+
+  async function markAllNotificationsRead(button) {
+    button.disabled = true;
+    try {
+      await post('/api/notifications/lire', { all: true });
+      $$('.alert.is-unread').forEach(alert => {
+        alert.classList.remove('is-unread');
+        $('[data-read]', alert)?.remove();
+      });
+      updateUnread();
+    } catch (_) {
+      button.disabled = false;
+      toast("Les notifications n'ont pas pu être enregistrées. Réessayez.", 'danger');
+    }
   }
 
   function updateAtt(scope) {
@@ -402,7 +429,7 @@
     if (empty) empty.hidden = shown > 0;
   }
 
-  /* ---------- Messages ---------- */
+  //---------- Messages ----------
   function toast(message, tone = 'ok') {
     const el = document.createElement('div');
     el.className = `toast toast--${tone}`;
@@ -412,7 +439,7 @@
     setTimeout(() => { el.classList.add('is-leaving'); el.addEventListener('animationend', kill, { once: true }); setTimeout(kill, 400); }, 4200);
   }
 
-  /* ---------- Compte à rebours (heure du serveur) ---------- */
+  //---------- Compte à rebours (heure du serveur) ----------
   const NOW0 = DATA ? Date.parse(DATA.meta.now) : Date.now(), T0 = performance.now();
   const pad = n => String(n).padStart(2, '0');
   function tick() {
@@ -425,7 +452,7 @@
   }
   setInterval(tick, 1000);
 
-  /* ---------- Palette de commandes (pages du menu du rôle + actions + sections) ---------- */
+  //---------- Palette de commandes (pages du menu du rôle + actions + sections) ----------
   const dlg = $('#palette'), pin = $('#paletteInput'), plist = $('#paletteList');
   let pItems = [], pView = [], pIdx = 0;
 
@@ -455,7 +482,7 @@
     else location.href = it.href;
   }
 
-  /* ---------- Thème ---------- */
+  //---------- Thème ----------
   function paintTheme() {
     const dark = root.dataset.theme === 'dark';
     const b = $('[data-theme-toggle]');
@@ -463,31 +490,27 @@
     b.setAttribute('aria-label', dark ? 'Passer au thème clair' : 'Passer au thème sombre');
   }
 
-  /* ---------- Rendu principal ---------- */
+  //---------- Rendu principal ----------
   function render() {
     if (!DATA) return;
     const h = DATA.hero;
     $('#heroRow').innerHTML = (h.type === 'match' ? heroMatch(h) : heroFocus(h)) + renderAgenda(DATA.agenda);
     $('#kpis').innerHTML = DATA.kpis.map(renderKpi).join('');
-    // Une seule grille : les notifications s'insèrent après la première série de panneaux
-    // demi-largeur (3 colonnes sur grand écran), ou prennent toute la largeur s'il n'y en a pas.
+    //Les notifications occupent une ligne complète sous les panneaux du tableau de bord.
     const panels = DATA.panels.map((p, i) => ({ full: !!p.full, html: P[p.type] ? P[p.type](p, `panels.${i}`) : '' }));
-    const start = panels.findIndex(x => !x.full);
-    let at = panels.length;
-    if (start >= 0) { at = start; while (at < panels.length && !panels[at].full) at++; }
-    const alerts = `<aside class="card alerts${start < 0 ? ' alerts--wide' : ''}" id="alerts" tabindex="-1" aria-labelledby="alerts-title">${renderAlerts(DATA.notifications)}</aside>`;
-    $('#workspace').innerHTML = [...panels.slice(0, at).map(x => x.html), alerts, ...panels.slice(at).map(x => x.html)].join('');
+    const alerts = `<aside class="card alerts alerts--wide" id="alerts" tabindex="-1" aria-labelledby="alerts-title">${renderAlerts(DATA.notifications)}</aside>`;
+    $('#workspace').innerHTML = [...panels.map(x => x.html), alerts].join('');
 
     $$('[data-att]').forEach(updateAtt);
     $$('[data-table]').forEach(updateTable);
     updateUnread();
     tick();
 
-    // Séquence d'entrée : barres, courbes, anneaux et donuts se dessinent
+    //Séquence d'entrée : barres, courbes, anneaux et donuts se dessinent
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add('is-ready')));
   }
 
-  /* ---------- Menu mobile ---------- */
+  //---------- Menu mobile ----------
   const sidebar = $('#sidebar'), scrim = $('#scrim'), burger = $('[data-nav-open]');
   function setNav(open) {
     const wasOpen = sidebar.classList.contains('is-open');
@@ -498,24 +521,31 @@
     if (open) $('#nav a')?.focus(); else if (wasOpen) burger.focus();
   }
 
-  /* ---------- Import CSV : aperçu côté navigateur, envoi réel au serveur ---------- */
-  async function onFile(form, file) {
-    const row = $('[data-file-row]', form), submit = $('[data-import-submit]', form), input = $('[data-file]', form);
-    if (!file) return;
-    if (!/\.csv$/i.test(file.name)) {
-      input.value = ''; row.hidden = true; submit.disabled = true;
-      toast('Format non pris en charge. Choisissez un fichier .csv', 'danger');
+  function onFile(form, file) {
+    const row = $('[data-file-row]', form);
+    const submit = $('[data-import-submit]', form);
+    const input = $('[data-file]', form);
+    if (!file) {
+      row.hidden = true;
+      submit.disabled = true;
       return;
     }
-    const text = await file.text();
-    const lines = Math.max(text.split(/\r?\n/).filter(l => l.trim()).length - 1, 0);
+    if (!/\.(csv|xlsx)$/i.test(file.name)) {
+      input.value = '';
+      row.hidden = true;
+      submit.disabled = true;
+      toast('Format non pris en charge. Choisissez un fichier .csv ou .xlsx.', 'danger');
+      return;
+    }
+
     $('[data-file-name]', form).textContent = file.name;
-    $('[data-file-meta]', form).textContent = `${fmt(lines)} licenciés détectés, ${(file.size / 1024).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} Ko`;
+    $('[data-file-meta]', form).textContent =
+      `${(file.size / 1024).toLocaleString('fr-FR', { maximumFractionDigits: 1 })} Ko`;
     row.hidden = false;
-    submit.disabled = lines < 1;
+    submit.disabled = file.size === 0;
   }
 
-  /* ---------- Exécution d'une action (validation côté serveur) ---------- */
+  //---------- Exécution d'une action (validation côté serveur) ----------
   async function runAction(btn) {
     const row = btn.closest('[data-row]');
     const label = btn.textContent;
@@ -556,7 +586,7 @@
     btn.disabled = false;
   }
 
-  /* ---------- Événements (délégation) ---------- */
+  //---------- Événements (délégation) ----------
   document.addEventListener('click', e => {
     const t = e.target;
 
@@ -600,21 +630,34 @@
     if (act) return runAction(act);
 
     const read = t.closest('[data-read]');
-    if (read) {
-      read.closest('[data-alert]').classList.remove('is-unread');
-      read.remove();
-      return updateUnread();
-    }
-    if (t.closest('[data-read-all]')) {
-      $$('.alert.is-unread').forEach(a => { a.classList.remove('is-unread'); $('[data-read]', a)?.remove(); });
-      return updateUnread();
-    }
+    if (read) return markNotificationRead(read);
+    const readAll = t.closest('[data-read-all]');
+    if (readAll) return markAllNotificationsRead(readAll);
   });
 
   document.addEventListener('input', e => {
     if (e.target.matches('[data-table-search]')) updateTable(e.target.closest('[data-table]'));
     if (e.target === pin) { pIdx = 0; paintPalette(); }
   });
+
+  document.addEventListener('change', e => {
+    if (e.target.matches('[data-file]')) onFile(e.target.closest('form'), e.target.files[0]);
+  });
+
+  ['dragenter', 'dragover'].forEach(ev => document.addEventListener(ev, e => {
+    const zone = e.target.closest?.('[data-dropzone]');
+    if (zone) { e.preventDefault(); zone.classList.add('is-over'); }
+  }));
+  ['dragleave', 'drop'].forEach(ev => document.addEventListener(ev, e => {
+    const zone = e.target.closest?.('[data-dropzone]');
+    if (!zone) return;
+    e.preventDefault();
+    zone.classList.remove('is-over');
+    if (ev === 'drop' && e.dataTransfer.files.length) {
+      $('[data-file]', zone).files = e.dataTransfer.files;
+      onFile(zone.closest('form'), e.dataTransfer.files[0]);
+    }
+  }));
 
   document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); return dlg.open ? dlg.close() : openPalette(); }
@@ -626,26 +669,7 @@
     }
   });
 
-  document.addEventListener('change', e => {
-    if (e.target.matches('[data-file]')) onFile(e.target.closest('form'), e.target.files[0]);
-  });
-
-  ['dragenter', 'dragover'].forEach(ev => document.addEventListener(ev, e => {
-    const z = e.target.closest?.('[data-dropzone]');
-    if (z) { e.preventDefault(); z.classList.add('is-over'); }
-  }));
-  ['dragleave', 'drop'].forEach(ev => document.addEventListener(ev, e => {
-    const z = e.target.closest?.('[data-dropzone]');
-    if (!z) return;
-    e.preventDefault();
-    z.classList.remove('is-over');
-    if (ev === 'drop' && e.dataTransfer.files.length) {
-      $('[data-file]', z).files = e.dataTransfer.files;
-      onFile(z.closest('form'), e.dataTransfer.files[0]);
-    }
-  }));
-
-  /* ---------- Démarrage ---------- */
+  //---------- Démarrage ----------
   $('#kbdHint').textContent = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : 'Ctrl K';
   paintTheme();
   render();

@@ -7,7 +7,7 @@ use App\Core\ProtectionCsrf;
 use App\Core\SessionUtilisateur;
 use App\Models\DepotClub;
 
-/** Pré-inscription en ligne depuis l'accueil public. */
+//Pré-inscription en ligne depuis l'accueil public.
 final class ControleurInscription
 {
     public static function enregistrer(): void
@@ -24,7 +24,7 @@ final class ControleurInscription
         if (!ProtectionCsrf::verifierRequete()) {
             self::echouer($saisie, 'Session expirée, veuillez réessayer.');
         }
-        if (($_POST['website'] ?? '') !== '') {          // champ piège anti-robots
+        if (($_POST['website'] ?? '') !== '') {          //champ piège anti-robots
             rediriger('/#inscriptions');
         }
         $envoisRecents = array_filter($_SESSION['inscriptions'] ?? [], static fn ($t) => $t > time() - 3600);
@@ -46,7 +46,7 @@ final class ControleurInscription
         $_SESSION['inscriptions'] = array_values($envoisRecents);
         @file_put_contents(BASE_PATH . '/storage/inscriptions.jsonl',
             json_encode(['at' => date('c')] + $saisie, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);
-        // À relier au métier : créer le dossier en base et prévenir le secrétariat par courriel.
+        //À relier au métier : créer le dossier en base et prévenir le secrétariat par courriel.
 
         SessionUtilisateur::messageFlash('success', 'Merci ' . $saisie['prenom'] . ', votre demande est bien reçue. Le secrétariat vous répond sous 48 heures.');
         rediriger('/#inscriptions');

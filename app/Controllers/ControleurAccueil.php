@@ -10,7 +10,7 @@ use App\Models\DepotClub;
 
 final class ControleurAccueil
 {
-    /** Accueil public : vie sportive et informations pratiques. */
+    //Accueil public : vie sportive et informations pratiques.
     public static function afficher(): void
     {
         Vue::afficher('home', DepotClub::accueil() + [
@@ -22,7 +22,7 @@ final class ControleurAccueil
 
     public static function pageIntrouvable(string $chemin): void
     {
-        // Une section de l'espace membre est gérée par ControleurModule ; le reste est une 404.
+        //Une section de l'espace membre est gérée par ControleurModule ; le reste est une 404.
         ControleurModule::afficherSection($chemin);
     }
 }

@@ -1,4 +1,4 @@
-<?php /* Sprite SVG partagé : icônes, écusson, terrain et visuels boutique */ ?>
+<?php //Sprite SVG partagé : icônes, écusson, terrain et visuels boutique ?>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <symbol id="crest-m2l" viewBox="0 0 40 46">
     <path d="M20 1.5 3 7.5v14.8C3 34.6 10.4 42.4 20 45c9.6-2.6 17-10.4 17-22.7V7.5L20 1.5Z" fill="#fff"/>
